@@ -1,0 +1,5 @@
+Branches which are used in this project:
+
+(master) = Masterbranch
+
+(workspace) = General workspace area
