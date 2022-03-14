@@ -5,14 +5,23 @@
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Svendolin/mailing-label-generator?style=for-the-badge) ![GitHub contributors](https://img.shields.io/github/contributors/svendolin/mailing-label-generator?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/Svendolin/mailing-label-generator?color=pink&style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/Svendolin/mailing-label-generator?style=for-the-badge) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Svendolin/mailing-label-generator?color=yellow&style=for-the-badge)
 ***
-This JDM Blogging Page should contain:
+This Mailing labels generator should contain:
 
-* Responsive layout using HTML/CSS and implemented design principles from the previous lessons
+* Used OOP and PDO, MVC principle and asynchronal requests via AJAX
 * A database that contains all relevant data (e.g. user data, articles, page content, etc.).
-* Two seperate Layouts for unregistred as well as registred users
-* A login form that registered users can use to log in. Once a user is logged in, they should be able to edit data in the database.
+* Two seperate Layouts or functionabiulities for unregistred as well as registred users
+* A login form that registered users can use to log in. Once a user is logged in, they should be able to edit data in the database in an ASYNCHRONAL WAY and SERVERSIDE CONTENT
 * A registration form that unregistered users can use to log in. This form should require at least four fields to be filled in and validated correctly (e.g. username, password,
 E- mail address, last name, first name, etc.).
+* Implementing a safe datatransfer and prepare statements
+
+Optional stuff:
+
+* "Forgot Password"
+* E-Mail validation with your fitting email of your registered accounnt
+* Search function
+* Chatbot
+* App with a full MVC-Model
 
 
 <span style="color:orange"> (Tasks and requirements are based on the SAE Institute Zurich)</span> 
@@ -21,10 +30,13 @@ E- mail address, last name, first name, etc.).
 <br />
 
 ***
-## JDM-Blog (Explenation) 💬
+## Label-Generator (Explenation) 💬
 ***
 
-The main purpose of the JDM blog is to network with other people who share the same hobby as me: They also own a car imported from Japan, maintain it, take it out for a drive and show their car at meetings. The blog scheme is meant to serve as a diary, a snapshot of past and future car meets. The site is intended to highlight upcoming car meets, capture past car meets for eternity via the blog feature, and list users who may present themselves in a summary table.
+Me and my mother run and host a web shop together and print out the labels myself, either directly at the post office (official website for online packaging) or with a "postal parcel addresser". So far we have used an outdated site: 
+https://ignaz.ch/paket/ettikette/index.php - The idea now is to set it up like this, but with a login system where you can save the addresses and choose from a few designs. There are comparatively few good sites that fit this bill: so this project is THE ultimate chance for a massive improvement!
+
+
 
 <br />
 <br />
@@ -36,23 +48,6 @@ The main purpose of the JDM blog is to network with other people who share the s
 HOME (index.php):
 
 * Overview of events, news about the owner's vehicle and featured blogposts where the latest and most popular posts are loaded.
-
-TELL YOUR STORY (tellyourstory.php):
-
-* This page can only be accessed if the user has registered and has logged in afterwards. On this site user can write a blog post and have it displayed on the main page.
-
-MEMBERBOARD (memberboard.php):
-
-* As soon as the user has successfully registered, his or her profile is visibly displayed in a user gallery.
-
-LOGIN and SIGNUP (login.php):
-
-* Registration and login are carried out on this page.
-* ``IMPORTANT: (Password / Username / Email of the regstered users are stored at .gitignore)``
-
-ADMIN LOGIN (footer):
-
-* Admin functions are carried out on this page.
 * ``IMPORTANT: (Password / Username / Email of the regstered users are stored at .gitignore)``
 
 <br />
