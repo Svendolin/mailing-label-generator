@@ -3,7 +3,7 @@
 $host = "localhost";
 $user = "root";
 $passwd = "";
-$dbname = "CHANGE ME ONCE YOU ARE READY";
+$dbname = "ettikator";
 
 // DB-Credentials Server
 /*

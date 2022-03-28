@@ -5,7 +5,7 @@
 
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Svendolin/mailing-label-generator?style=for-the-badge) ![GitHub contributors](https://img.shields.io/github/contributors/svendolin/mailing-label-generator?style=for-the-badge) ![GitHub forks](https://img.shields.io/github/forks/Svendolin/mailing-label-generator?color=pink&style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/Svendolin/mailing-label-generator?style=for-the-badge) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Svendolin/mailing-label-generator?color=yellow&style=for-the-badge)
 ***
-This Mailing labels generator should contain:
+Ettikator, the mailing labels generator should contain:
 
 * Used OOP and PDO, MVC principle and asynchronal requests via AJAX
 * A database that contains all relevant data (e.g. user data, articles, page content, etc.).
@@ -88,20 +88,19 @@ Each user should provide the following information via registration form in orde
 |Folder   |Content  |
 | ---   | ---   |
 |admin| Admin area (index.php) to delete and modify user profiles (user.php) and blogposts (blogposts.php) |
-|blogpost_images|Local storage of blogpost images (temporary folder)|
-|favicon|All favicon symbols for each devices|
-|images|Image folder to storage all the used images for this project|
-|includes|All inc files concerning included header and footer (html), database config (config.php) and mysql connections(mysql-connect.php) as well as functions (functions.inc.php) for the login and signup|
+|guidesSAE| Summatives- und Formatives Assignment von diesem Modul |
+|ignazstuff | HTML von Ignaz, einer Etikettenmusterseite, die mich überhaupt auf die Idee für dieses Projekt brachte|
+|favicon| Favicon Symbole für verschiedene Devices|
+|images|Bilder und Etiketten-Designs|
+|includes| Laufendes Script, was der User nicht sehen wird: All inc files concerning included header and footer (html), database config (config.php) and mysql connections(mysql-connect.php) as well as functions (functions.inc.php) for the login and signup|
 |passwordstuff| Passwords and usernames to login with the matching profile|
-|theme|Includes the css folder with all the styles, fonts folder with additional fonts and javascript for the logical part|
-|user_images|Local storage of user images (temporary folder)|
-|index.php| Main page |
-|login.php|Sign in and Sign up area |
-|logout.php| Section to destroy the logged in session |
-|memberboard.php| Displayed User-Gallery|
+|themes|Beinhaltet alle CSS-Ordner mit Styles sowie einen Javascript Ornder für...|
+|index.php| Startseite |
+|logreg.php| Unterseite, wo sich der User registrieren und einloggen kann |
+|menu.php| Unterseite im eingeloggten Zustand, um Adresslisten zu verwalten | 
+|logout.php| Bereich um die eingeloggte Session zu zerstören |
 |post.php| Full review of a selected blogpost matching with their ID|
-|swiss_jdm_blog.sql| Exported Database |
-|tellyourstory.php| Area where users can write blogposts |
+|ettikator.sql| Exportierte Datenbank |
 
 
 <br />

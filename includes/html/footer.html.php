@@ -5,6 +5,7 @@
 
 <footer class="footer">
   <div class="container">
+    <hr>
     Test Test - Ich bin der Footer
 
   </div>
