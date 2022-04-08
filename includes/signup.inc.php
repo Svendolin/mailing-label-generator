@@ -2,15 +2,16 @@
 // --- signup.inc.php - Empfängt Daten aus dem logreg.php Formular bezüglich SIGNUP --- //
 
 /*
-Infos: 
-- logreg.php > DU BIST HIER: signup.inc.php > SignupController > Signup > Dbh
+WO befindest du dich?
+- logreg.php > {DU BIST HIER: signup.inc.php} > SignupController > Signup > Dbh
+
+Welcher Inhalt erwartet mich?
 - Durch das Klicken des Submitbuttons "submit-signup" der Registrierung, werden die Daten hierhin gesendet...
 - Die Daten kommen aus dem logreg.php über das action="" Attribut des Formulars hierhin als <form action="includes/signup.inc.php"
 
 */
-if(isset($_POST["submit-signup"])) // Entspricht name="" des Button
+if(isset($_POST["submit-signup"])) // Entspricht name="" des Buttons
 {
-
     // Daten aus dem Formular entziehen ( name="")
     // 4x da es vier Formularelemente geben wird..
     $uid = $_POST["uid"];
@@ -19,17 +20,18 @@ if(isset($_POST["submit-signup"])) // Entspricht name="" des Button
     $email = $_POST["email"];
 
     // INSTANZIEREN sowie REFERENZIEREN (linken) der Classes:
-    include "../class/dbh.class.php"; // ../ = aus den Includes raus in den Root und von da Ordnerschritt zu Ordnerschritt
+    // Reihenfolge wichtig! Die Vererbende Superklasse zuerst, alle erbenden Subklassen nach und nach...
+    include "../class/dbh.class.php"; 
     include "../class/signup.class.php";
     include "../class/signup-controller.class.php";
-    // Object $signup instanzieren, was auf die Klasse aus signup-controller.class.php herausgeht
+    // Object $signup kreieren, was auf die Klasse aus signup-controller.class.php herausgeht...
     $signup = new SignupController($uid, $pwd, $pwdRepeat, $email); // (B) Data-Properties des Users aus signup-controller.class.php einbauen
 
-    // User Signup und Error Handlers laufenlassen:
-    $signup->signupUser(); // Methode "runnen" aus signup-controller.class.php fürs Errorhandling
+    // ...signupUser() und Error Handler Methode aus signup-controller.class.php instanzieren:
+    $signup->signupUser(); 
 
-    // Zurück zur Startseite
-    header("location: ../index.php?error=none");
+    // Zurück zur Startseite (Kein Error vorhanden beim Registrieren)
+    header("location: ../logreg.php?error=none");
 }
 
 ?>

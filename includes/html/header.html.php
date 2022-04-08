@@ -55,19 +55,53 @@
   <script src="themes/js/animation.js" defer></script>
   <!-------------------------------------- JS CONNECTION -------------------------------------->
   <script src="themes/js/main.js" defer></script>
-
 </head>
 
 <body>
   <!--------- NAVIGATION ------------------------------------------------------------------------------------------>
+
   <nav class="nav">
-    <img src="images/doggy.png" alt="doggo" height="50px">
-    Test Test - Ich bin der Header
-    <button type="button" name="logreg"><a href="logreg.php">Login / Registrierung</a></button>
-    <!-- <div class="logregbtn"><a href="logreg.php">Login / Registrierung</a></div> -->
-    <hr>
-    <!-- <button>Login / Registrierung </button> -->
-
-
+    <div class="nav-menu">
+      <div class="nav-brand">
+        <img src="images/doggy.png" alt="doggo" height="50px">
+      </div>
+      <!-- [toggle burger] -->
+      <div class="toggle-collapse">
+        <div class="toggle-icons">
+          <i class="menu-toggle-btn fas fa-bars"></i> <!-- fa-times = x-symbol -->
+        </div>
+      </div>
+      <div>
+        <ul class="nav-items">
+          <!-- [Startseite] -->
+          <li class="nav-link">
+            <a href="index.php" class="home">Startseite</a>
+          </li>
+          <!-- [Adressübersicht] -->
+          <?php
+          // Ist der User eingeloggt, dann zeige DAS: 
+          if (isset($_SESSION["useruid"])) {
+            echo '<div class="adresse">
+                    <li class="nav-link">
+                      <a href="menu.php">Adressübersicht</a>
+                    </li>
+                  </div>';
+          } //...ansonsten wird dieser Teil nicht angezeigt!
+          ?>
+        </ul>
+      </div>
+      <!-- [LOGOUT und LOGIN] -->
+      <?php
+      // Ist der User eingeloggt, dann zeige DAS:
+      if (isset($_SESSION["useruid"])) {  // ...If so, the user is logged in! (btw useruid is the referenced username from functions.inc.php)
+        echo '<button class="login" type="button" name="logoutreg"><a href="includes/logout.inc.php">Logout</a></button>';
+      }
+      // Ist der User NICHT eingeloggt, dann zeige DAS:
+      else {
+        echo '<button class="login" type="button" name="logreg"><a href="logreg.php">Login / Registrierung</a></button>';
+      }
+      ?>
+    </div>
   </nav>
+  <hr>
   <!---x----- NAVIGATION -----x------------------------------------------------------------------------------------>

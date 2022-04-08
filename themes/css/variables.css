@@ -1,0 +1,93 @@
+/* Over here you will find:
+
+  - CSS Reset
+  - Custom Fonts
+  - Variables
+  - Global classes 
+  
+*/
+
+
+/* === Small CSS Reset === */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  /* To eliminate horizontal scrollbar */
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+/* Custom Fonts for possible use */
+
+@font-face {
+  font-family: 'myFirstFont';
+  src: url('../theme/fonts/SF_Shai_Fontai_Extended-webfont.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* -------- CSS Variablen --------- */
+
+:root {
+  /* Themed colors https://coolors.co/ */
+  --text-gray: #2e3338;
+  --text-light: #525252da;
+  --bg-color: #0f0f0f;
+  --white: #ffffff;
+  --cherry: #fa6ebb;
+  --sakura: #f8a8c9;
+  --darkcherry: #790032;
+  --red: #c00000;
+  --light-grey: #d8d8d8;
+  /* Gradient color https://webgradients.com/ */
+  --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+  --pink: linear-gradient(120deg, #fd84a2 0%, #cf4585 100%);
+  --pink-light: linear-gradient(120deg, #f1a3c4 0%, #dfa1ee 100%);
+  --pink-very-light: linear-gradient(120deg, #fd84a2 0%, #fac0db 100%);
+  --pink-heavy: linear-gradient(120deg, #a81f41 0%, #fac0db 100%);
+  /* Themed fonts (used in this blog) */
+  --logo: 'Permanent Marker', cursive;
+  /* For logo */
+  --linksnbtn: 'Abel', cursive;
+  /* For Links and Buttons */
+  --textntitles: 'Nunito', sans-serif;
+  /* For Text and Titles */
+}
+/* ----x---- CSS Variablen ----x---- */
+
+
+/* --------- Globale Klassen --------- */
+
+
+/* Add a flex-row in the html to flex the object... */
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* It can collapse perfectly if the size is shrinking */
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ----x---- Globale Klassen ----x---- */

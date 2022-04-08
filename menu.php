@@ -1,8 +1,13 @@
 <?php
-// TODO: require_once für alles Notwendige
+// Adresseingaben und Adressliste sowie GOOGLE MAPS API Zugang
+session_start();
 
-// TODO: Session
- session_start();
+// Diese Seite ist nur im EINGELOGGTEN ZUSTAND sichtbar!
+if (!isset($_SESSION['useruid'])) {
+  header("location: logreg.php");
+  exit();
+}
+
 ?>
 
 <!---------- Header + Navigation ---------------------------------------------------------------------------------------->
@@ -11,16 +16,14 @@ include('includes/html/header.html.php');
 ?>
 <!-----x---- Header + Navigation ----x----------------------------------------------------------------------------------->
 
-<main>
 
-Hallo. ich bin der Index.php :D
 
-</main>
+
 
 
 
 <!---------- footer ----------------------------------------------------------------------------------------------------->
-<?php 
+<?php
 include('includes/html/footer.html.php');
 ?>
 <!-----x---- footer ----x------------------------------------------------------------------------------------------------>

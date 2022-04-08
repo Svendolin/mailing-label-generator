@@ -1,9 +1,6 @@
 <?php
 // Login / Registrierungsformular
 session_start();
-require('prefs/credentials.php');
-require('class/SimpleCRUD.class.php');
-$myDBInstance = new SimpleCRUD($host, $user, $passwd, $dbname);
 
 ?>
 
@@ -91,7 +88,7 @@ include('includes/html/header.html.php');
           <input type="password" id="password" name="pwd" value="" placeholder="Passwort">
         </div>
 
-        <button type="submit" name="submit-l">Login</button>
+        <button type="submit" name="submit-login">Login</button>
       </form>
     </div>
     <hr>

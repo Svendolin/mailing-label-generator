@@ -1,8 +1,10 @@
 <?php
 // --- dbh.class.php - Aufbau Superklasse Dbh (Datenbank) --- //
 /*
-Infos: 
-- logreg.php > signup.inc.php > SignupController > Signup > DU BIST HIER: Dbh
+Wo befindest du dich?
+- logreg.php > signup.inc.php > SignupController > Signup > {DU BIST HIER: Dbh}
+
+Welcher Inhalt erwartet mich?
 - Datenbank klasse, was eine Datenbankverbindung aufbauen wird
 - ...
 
@@ -12,7 +14,7 @@ Infos:
 class Dbh {
     
     // Methode (Kurzversion) zum Datenbankaufbau:
-    protected function connect() {
+    protected function connect() { // protected, damit wir von der Subklasse Signup zugreifen können
         // try: "versuche Kommendes auszuführen" oder fange (catch) den Error ab und zeige ihn:
         try {
             // (Übernimmt prefs > crendetials) Lokale-DB-Credentials von XAMPP:
