@@ -7,7 +7,6 @@ Wo befindest du dich?
 Welcher Inhalt erwartet mich?
 - Datenbank klasse, was eine Datenbankverbindung aufbauen wird
 - ...
-
 */
 
 // Dbh ist die Superklasse, Signup wiederum die Subklasse etc...

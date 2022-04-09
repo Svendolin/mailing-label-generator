@@ -2,6 +2,9 @@
 // Login / Registrierungsformular
 session_start();
 
+// Subklass instanzieren (Superklasse muss wie gelernt nicht instanziert werden)
+require('class/menu.class.php');
+
 ?>
 
 <!---------- Header + Navigation ---------------------------------------------------------------------------------------->

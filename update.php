@@ -24,9 +24,13 @@ include('includes/html/header.html.php');
 ?>
 <!-----x---- Header + Navigation ----x----------------------------------------------------------------------------------->
 
-
+	<hr>
+	<p class="explanation">
+		<a href="menu.php" style="text-decoration: underline;"><strong>C</strong>reate</a> | 
+		<a href="read_erweitert.php">Read erweitert</a>
+	</p>
+	<hr>
 <?php
-
 // Checke, ob der Submit-Button geklickt wurde
 if (isset($_POST['go'])) {
 	// ja
@@ -34,35 +38,61 @@ if (isset($_POST['go'])) {
 	$vornameValue = $_POST['vorname'];
 	$nachnameValue = $_POST['nachname'];
 	$emailAdresseValue = $_POST['emailAdresse'];
-	//$ortValue = $_POST['ort'];
+	// $ortValue = $_POST['ort'];
 	$bemerkungenValue = $_POST['bemerkungen'];
+	// HIDDEN-ID Wert des hidden input feldes, um die jeweilige ID zu ermitteln
+	$idValue = $_POST['id']; 
 	
-	// Methode aufrufen, createMethod(sowie die passenden Variablen aus $query)
-	$lastID = $myInstance -> createMethod($vornameValue,$nachnameValue,$emailAdresseValue,$bemerkungenValue);
+	$myInstance -> updateMethod($idValue, $vornameValue,$nachnameValue,$emailAdresseValue,$bemerkungenValue);
 	
 	echo "<div class=\"feedback_positiv\">";
-	echo "Der Datensatz wurde aufgenommen. Die ID des eingefügten Datensatzes ist ".$lastID;
+	echo "Der Datensatz wurde gesichert.";
 	echo "</div>\n";
-	
+	echo "</body>";
+	echo "</html>";
+	// Ausgabe beenden
+	exit();
 }
 else {
-	// nein, setzte die Variablen leer, damit beim ersten Affenschwanz-Durchgang kein Fehler generiert wird
-	$vornameValue = "";
-	$nachnameValue = "";
-	$emailAdresseValue = "";
-	// $ortValue = "";
-	$bemerkungenValue = "";
+	// nein
+	// Die ID kommt beim ersten Affenschwanz-Durchgang von read_erweitert.php als GET-Var
+	if (!isset($_GET['id'])) {
+		die("Weiss nicht, welchen User ich bearbeiten soll");
+	}
+	// Sicherheitsmassname
+	$cleanID = filter_var(htmlspecialchars($_GET['id'])); // WARUM? Siehe hier: (#)
+	
+	// Fülle die Variablen mit dem Resultat von der DB-Query
+	$recordArray = $myInstance -> getSingleRecord($cleanID); // Method aus der Superklasse
+	
+	$vornameValue = $recordArray['vorname'];
+	$nachnameValue = $recordArray['nachname'];
+	$emailAdresseValue = $recordArray['email'];
+	// $ortValue = $recordArray['ort'];
+	$bemerkungenValue = $recordArray['bemerkungen'];
+	// HIDDEN-ID Wert des hidden input feldes, um die jeweilige ID zu ermitteln
+	$idValue = $cleanID;
 }
 ?>
 
-<hr>
-	<p class="explanation">
-		<a href="read.php"><strong>R</strong>ead</a> | 
-		<a href="read_erweitert.php">Read erweitert</a>
-	</p>
-	<hr>
+<?php 
 
-	<form action="menu.php" method="post">
+// (#)
+
+//strip_tags(); - Erste safetyform, um zu verhindern, dass man solchen Code einsetzen kann in Inputfelder:
+$str = "<a href='test'>Test</a>";
+
+echo strip_tags($str);
+
+// Nur Zeichen, die von HTML "besetzt sind"
+htmlspecialchars($str, ENT_QUOTES);
+
+// Wirklich alle Entities:
+htmlentities($str);
+
+?>
+
+	<form action="update.php" method="post">
 		<div>
 			<label for="vorname">Vorname:</label><br>
 			<input type="text" id="vorname" name="vorname" value="<?=$vornameValue?>">
@@ -81,28 +111,18 @@ else {
 		<div>
 		<!-- <div>
 			<label for="ort">Ort:</label><br>
-			<input type="text" id="ort" name="ort" value="">
-		</div> -->
-		<!-- <br> -->
+			<input type="text" id="ort" name="ort" value="<=$ortValue?>">
+		</div>
+		<br> -->
 		<div>
 			<label for="bemerkungen">Bemerkungen:</label><br>
 			<textarea id="bemerkungen" name="bemerkungen" cols="50" rows="6"><?=$bemerkungenValue?></textarea>
 		</div>
+		
+		<input type="hidden" name="id" value="<?=$idValue?>"> <!-- VERSTECKTES FORMULARELEMENT -->
 		<button type="submit" name="go">Datensatz speichern</button>
 	</form>
-
-  <?php foreach ($recordArray as $row): ?>
-		<p class="explanation">
-			<?=$row['vorname']?> <strong><?=$row['nachname']?></strong> (ID: <?=$row['ID']?>)<br>
- 			<a href="mailto:<?=$row['email']?>"><?=$row['email']?></a>
-			 <br>
-			 <!-- Ort: <=$row['ort']?><br> -->
- 		</p>
- 		<p class="explanation"><?=nl2br($row['bemerkungen'])?></p> <!-- New line to break = nl2br = Neuer Zeilenumbruch darstellen -->
- 		<hr>
- 	<?php endforeach; ?>
-
-
+	
 <!---------- footer ----------------------------------------------------------------------------------------------------->
 <?php
 include('includes/html/footer.html.php');
