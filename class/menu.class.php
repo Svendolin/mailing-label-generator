@@ -6,8 +6,8 @@
 - Ein Modell, was diesen Aufbau macht (MVC-Prinzip) 
 */
 
-// Die Klasse erbt von der Superklasse PDO (PDO ist eine automatische Klasse von PHP, diese ist gegeben)
-class SimpleCRUD extends PDO { // "SimpleCRUD ist eine subklasse von PDO mit extends"
+// Die Klasse MENU erbt von der Superklasse PDO (PDO ist eine automatische Klasse von PHP, diese ist gegeben)
+class Menu extends PDO { 
 
 	
 	
@@ -30,27 +30,26 @@ class SimpleCRUD extends PDO { // "SimpleCRUD ist eine subklasse von PDO mit ext
 			parent::__construct($dsn,$user,$passwd,$options); // bestehend aus 4-Parameter ($dsn, DB-User, Sein Passwort, PDO-Array)
 		}
 		catch (PDOException $e) { // Varible $e speichert dann die Fehleransage
-			die("Verbindung zur Datenbank fehlgeschlagen: ".$e->getMessage()); // Fehlermeldungen werden ausgegeben. => Fürs Projekt $e->getMessage() nicht schreiben, bzw wird nicht benötigt
+			die("Verbindung zur Datenbank fehlgeschlagen: ".$e->getMessage()); 
 		}
 	}
 	
-	// Fakt: Alles was heikel ist, befindet sich in Formularen, also dort, wo der User reinschreiben kann
-	
 
-	/* --- "CREATE" from CRUD --- */
-	/* METHODE createMethod() aus create.php */
+	/* --- "CREATE" von CRUD --- */
+	/* METHODE createMethod() initiert in menu.php */
 
 	// 1) Parameter in die Methode einbauen:
-	public function createMethod($vornameInput, $nachnameInput, $emailInput, $bemerkungenInput) { // parameter der Methode
+	public function createMethod($vornameInput, $nachnameInput, $strasseInput, $plzInput, $ortInput, $bemerkungenInput) { // parameter der Methode
 		// 2) Query formulieren (inserten) und beim Wert (value) mit Platzhalterschablonenwerte arbeiten:
-		$query = "INSERT INTO adress (vorname, nachname, email, bemerkungen) VALUES (:vorname, :nachname, :email, :bemerkungen)"; // :vorname z.B. Platzhalter, wie die ?-prepare Statements von früher
+		$query = "INSERT INTO adress (vorname, nachname, strasse, plz, ort, bemerkungen) VALUES (:vorname, :nachname, :strasse, :plz, :ort, :bemerkungen)"; // :vorname z.B. Platzhalter, wie die ?-prepare Statements von früher
 		// 3) Auf Prepare-methode zurückgreifen (QUERY VORBEREITEN)
 		$stmt = $this -> prepare($query);
 		// 4) Mit bindParam verschmelzen wir jeden Platzhalter mit den Parametern (STATEMENT VERSCHMELZEN)
 		$stmt -> bindParam(':vorname', $vornameInput);
 		$stmt -> bindParam(':nachname', $nachnameInput);
-		$stmt -> bindParam(':email', $emailInput);
-		// $stmt -> bindParam(':ort', $ortInput);
+		$stmt -> bindParam(':strasse', $strasseInput);
+    $stmt -> bindParam(':plz', $plzInput);
+		$stmt -> bindParam(':ort', $ortInput);
 		$stmt -> bindParam(':bemerkungen', $bemerkungenInput);
 		// 5) Statement ausführen (STATEMENT AUSFÜHREN):
 		$stmt -> execute();
@@ -59,7 +58,7 @@ class SimpleCRUD extends PDO { // "SimpleCRUD ist eine subklasse von PDO mit ext
 		return $this -> lastInsertId(); 
 	}
 	
-	/* --- "READ" from CRUD --- */
+	/* --- "READ" von CRUD --- */
 	public function readMethod() {
 		$query = "SELECT * FROM adress";
 		$stmt = $this -> prepare($query);
@@ -69,7 +68,7 @@ class SimpleCRUD extends PDO { // "SimpleCRUD ist eine subklasse von PDO mit ext
 		return $result;
 	}
 	
-	/* --- "READ" from CRUD --- */
+	/* --- "READ" von CRUD für menu_update.php --- */
 	public function getSingleRecord($idInput) {
 		$query = "SELECT * FROM adress WHERE ID = :ID";
 		$stmt = $this -> prepare($query);
@@ -80,28 +79,31 @@ class SimpleCRUD extends PDO { // "SimpleCRUD ist eine subklasse von PDO mit ext
 		return $result;
 	}
 	
-	/* --- "UPDATE" from CRUD --- */
-	public function updateMethod($idInput, $vornameInput, $nachnameInput, $emailInput, $bemerkungenInput) {
+	/* --- "UPDATE" von CRUD --- */
+	public function updateMethod($idInput, $vornameInput, $nachnameInput, $strasseInput, $plzInput, $ortInput, $bemerkungenInput) {
 		$query = "UPDATE adress SET ";
 		$query .= "vorname = :vorname, ";
 		$query .= "nachname = :nachname, ";
-		$query .= "email = :email, ";
-	// $query .= "ort = :ort, ";
+		$query .= "strasse = :strasse, ";
+    $query .= "plz = :plz, ";
+	  $query .= "ort = :ort, ";
 		$query .= "bemerkungen = :bemerkungen ";
 		$query .= "WHERE ID = :ID ";
+
 		// Vorbereiten und einzeln ersetzen für den "upgedateten Wert"
 		$stmt = $this -> prepare($query);
 		$stmt -> bindParam(':ID', $idInput, PDO::PARAM_INT); // Die 3 Parameter angeben: Welcher Parameter betroffen ist, welcher Wert es ist und dass PDO betroffen ist, die Datenbank
 		$stmt -> bindParam(':vorname', $vornameInput);
 		$stmt -> bindParam(':nachname', $nachnameInput);
-		$stmt -> bindParam(':email', $emailInput);
-		// $stmt -> bindParam(':ort', $ortInput);
+    $stmt -> bindParam(':strasse', $strasseInput);
+		$stmt -> bindParam(':plz', $plzInput);
+		$stmt -> bindParam(':ort', $ortInput);
 		$stmt -> bindParam(':bemerkungen', $bemerkungenInput);
 		$stmt -> execute();
 	}
 	
-	/* --- "DELETE" from CRUD --- */
-	/* METHODE deleteMethod() aus read_erweitert.php */
+	/* --- "DELETE" von CRUD --- */
+	/* METHODE deleteMethod() aus menu_bearbeiten.php */
 	public function deleteMethod($idInput) {
 		$query = "DELETE FROM adress WHERE ID = :ID";
 		$stmt = $this -> prepare($query);
@@ -109,7 +111,5 @@ class SimpleCRUD extends PDO { // "SimpleCRUD ist eine subklasse von PDO mit ext
 		$stmt -> execute();
 	}
 }
-
-
 
 ?>
