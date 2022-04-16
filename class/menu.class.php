@@ -39,12 +39,13 @@ class Menu extends PDO {
 	/* METHODE createMethod() initiert in menu.php */
 
 	// 1) Parameter in die Methode einbauen:
-	public function createMethod($vornameInput, $nachnameInput, $strasseInput, $plzInput, $ortInput, $bemerkungenInput) { // parameter der Methode
+	public function createMethod($adressInput, $vornameInput, $nachnameInput, $strasseInput, $plzInput, $ortInput, $bemerkungenInput) { // parameter der Methode
 		// 2) Query formulieren (inserten) und beim Wert (value) mit Platzhalterschablonenwerte arbeiten:
-		$query = "INSERT INTO adress (vorname, nachname, strasse, plz, ort, bemerkungen) VALUES (:vorname, :nachname, :strasse, :plz, :ort, :bemerkungen)"; // :vorname z.B. Platzhalter, wie die ?-prepare Statements von früher
+		$query = "INSERT INTO adress (adress_key, vorname , nachname, strasse, plz, ort, bemerkungen) VALUES (:adress_key,:vorname, :nachname, :strasse, :plz, :ort, :bemerkungen)"; // :vorname z.B. Platzhalter, wie die ?-prepare Statements von früher
 		// 3) Auf Prepare-methode zurückgreifen (QUERY VORBEREITEN)
 		$stmt = $this -> prepare($query);
 		// 4) Mit bindParam verschmelzen wir jeden Platzhalter mit den Parametern (STATEMENT VERSCHMELZEN)
+		$stmt -> bindParam(':adress_key', $adressInput); // Unser Foreign-Key. 
 		$stmt -> bindParam(':vorname', $vornameInput);
 		$stmt -> bindParam(':nachname', $nachnameInput);
 		$stmt -> bindParam(':strasse', $strasseInput);
@@ -59,8 +60,9 @@ class Menu extends PDO {
 	}
 	
 	/* --- "READ" von CRUD --- */
-	public function readMethod() {
-		$query = "SELECT * FROM adress";
+	// Neu: 
+	public function readMethod($adressid) {
+		$query = "SELECT * FROM adress WHERE adress_key = $adressid";
 		$stmt = $this -> prepare($query);
 		$stmt -> execute();
 		$result = $stmt -> fetchAll();

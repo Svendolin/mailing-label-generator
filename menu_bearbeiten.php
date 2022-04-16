@@ -12,6 +12,13 @@ if (!isset($_SESSION['useruid'])) {
   exit();
 }
 
+// echo '<pre>';
+// print_r($_SESSION);
+// echo '</pre>';
+
+$adressId = $_SESSION['userid'];
+// echo $userId;
+
 /* ERWEITERTES BEARBEITEFILE (Mit der Tabelle für Update und Delete) */
 require('prefs/credentials.php');
 require('class/menu.class.php');
@@ -33,7 +40,7 @@ if (isset($_POST['go'])) {
 	$myInstance -> deleteMethod($idValue); 
 }
 // 3) Nach dem Delete folgt das obligatorische Lesen (read)
-$recordArray = $myInstance -> readMethod(); // $recordArray nutzen wir für den Loop:
+$recordArray = $myInstance -> readMethod($adressId); // $recordArray nutzen wir für den Loop:
 ?>
 
 

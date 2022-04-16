@@ -27,6 +27,15 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+.gmaps {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#map {
+  height: 400px;
+  width: 50%;
+}
 
 
 /* Custom Fonts for possible use */
@@ -79,6 +88,8 @@ body {
   flex-wrap: nowrap;
   /* It can collapse perfectly if the size is shrinking */
 }
+
+
 
 
 

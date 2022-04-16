@@ -1,0 +1,3 @@
+Google Cloud Platform > Projekt erstellen (z.B testproject110422) / Zu jedem Projekt kann dann ein Schlüssel erstellt werden.
+
+APIs & Dienste > Anmeldedaten > Anmeldedaten erstellen > API auf Dropbox

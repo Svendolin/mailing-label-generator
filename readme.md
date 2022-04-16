@@ -23,6 +23,15 @@ Optional stuff:
 * Chatbot
 * App with a full MVC-Model
 
+Aditional Tips:
+
+* Try to seperate the parts in COMPONENTS:
+  *  HeaderComponent (Whith HTML, TS or JS, and CSS)
+  *  FooterComponent (Whith HTML, TS or JS, and CSS)
+  *  WelcomeComponent (Whith HTML, TS or JS, and CSS)
+  *  LoginComponent (Whith HTML, TS or JS, and CSS)
+  * and...and...and...
+
 
 <span style="color:orange"> (Tasks and requirements are based on the SAE Institute Zurich)</span> 
 

@@ -61,12 +61,17 @@ class Login extends Dbh {
             // ABER: Passt alles, nehmen wir den NUTZERDATEN $user um die Session zu starten:
             $user = $stmt->fetchAll(PDO::FETCH_ASSOC); // Die Daten wollen wir als Assoziatives Array zurückbringen
 
+            // 1) Session starten...
             session_start();
-            // Session-Superglobal:
+
+            // 2) Hier bereiten wir Session-Variablen zu anhand der users-Tabelle
             $_SESSION["userid"] = $user[0]["users_id"];
             $_SESSION["useruid"] = $user[0]["users_uid"];
 
             $stmt = null;
+
+          
+         
         }
     }
 

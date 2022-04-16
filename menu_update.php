@@ -13,13 +13,16 @@ if (!isset($_SESSION['useruid'])) {
   exit();
 }
 
+/* Session des jeweiligen Users anhand des Foreign Keys */
+$adressId = $_SESSION['userid'];
+
 /* UPDATEFILE */
 require('prefs/credentials.php');
 require('class/menu.class.php');
 // Subklasse Menu ins Objekt $myInstance zwischenspeichern
 $myInstance = new Menu ($host,$user,$passwd,$dbname);
 // Instanzierung des Bauplans mit Lesemethode readMethod()
-$recordArray = $myInstance -> readMethod();
+$recordArray = $myInstance -> readMethod($adressId);
 
 /* DESIFINZIERUNGSMASSNAHME von INPUTFELDERN */
 // Mehr zum Thema Sicherheit: https://werner-zenk.de/tipps/php_mit_sicherheit.php
