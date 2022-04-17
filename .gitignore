@@ -5,3 +5,5 @@
 /ignazstuff
 # Keys and Passwordstuff
 /PW
+# Exposed API Key
+/themes/js/api.js
