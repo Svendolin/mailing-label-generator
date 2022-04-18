@@ -50,12 +50,11 @@ include('includes/html/header.html.php');
 ?>
 <!-----x---- Header + Navigation ----x----------------------------------------------------------------------------------->
 
-<hr>
-	<p class="explanation">
-		<a href="menu.php">Adresse eintragen</a> | 
-		<a href="menu_bearbeiten.php" style="text-decoration: underline;">Adressen bearbeiten</a>
-	</p>
-	<hr>
+<div class="emptyspace"></div>
+<div class="erklaerungsbereich">
+	<a href="menu.php">Adresse eintragen</a> 
+	<a href="menu_bearbeiten.php">Adressen bearbeiten</a>
+</div>
 <?php
 // print_r($recordArray);
 ?>

@@ -1,0 +1,125 @@
+/* Over here you will find responsiveness for:
+  - 1) Navigation
+  - 2) Main-Area (index.php)
+  - 3) Menu-Area (menu.php / menu_bearbeiten.php / menu_update.php)
+  - 4) Footer
+*/
+
+/* --------- 1) Navigation --------- */
+
+@media all and (min-width: 800px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  header {
+    display: grid;
+    grid-template-columns: 1fr auto minmax(600px, 3fr) 1fr;
+  }
+  
+  .logo {
+    grid-column: 2 / 3;
+  }
+  
+  nav {
+    all: unset; /* Probleme mit Edge, falls nicht angezeigt */
+    position: relative;
+    text-align: left;
+    transition: none;
+    transform: scale(1,1);
+    background: none;
+    top: initial;
+    left: initial;
+    grid-column: 3 / 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    
+  }
+  
+  nav ul {
+    display: flex;
+  }
+  
+  nav li {
+    margin-left: 3em;
+    margin-bottom: 0;
+  }
+  
+  nav a {
+    opacity: 1;
+    position: relative;
+  }
+  
+  nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background: black;
+    position: absolute;
+    top: -.75em;
+    left: 0;
+    right: 0;
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+  
+  nav a:hover::before {
+    transform: scale(1,1);
+  }
+
+}
+/* --x------ 1) Navigation ------x-- */
+/* ----------- 2) Main-Area (index.php) ----------- */
+
+
+
+/* --x-------- 2) Main-Area (index.php) --------x-- */
+/* ----------- 3) Menu-Area (menu.php / menu_berbeiten.php / menu_update.php) ----------- */
+
+@media all and (max-width: 900px) {
+  .user-details .input-box {
+    margin-bottom: 15px;
+    width: 100%;
+  }
+}
+
+
+@media all and (max-width: 750px) {
+  .grid-container {  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: row;
+    justify-content: stretch;
+    width: 100%;
+    grid-template-areas:
+      "grid-form"
+       "grid-tabelle";
+  }
+  
+  /* Grid Bereich ADRESS-FORM (Adresseingabe) */
+  .grid-form { 
+    grid-area: grid-form;
+    margin: 10px;
+    width: 95%;
+  }
+/* Doofe Idee */
+  .user-details {
+    max-height: 300px;
+    overflow-y: scroll;
+  }
+
+  .user-details::-webkit-scrollbar {
+    width: 0;
+  }
+  
+  /* Grid Bereich ADRESS-TABELLE (ADRESSLEISTE) */
+  .grid-tabelle { 
+    grid-area: grid-tabelle; 
+  } 
+}
+
+
+
+/* --x-------- 3) Menu-Area (menu.php / menu_berbeiten.php / menu_update.php) --------x-- */

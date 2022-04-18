@@ -25,9 +25,9 @@
   <!-------------------------------------- CSS LINKS -------------------------------------->
   <link rel="stylesheet" type="text/css" media="screen" href="themes/css/variables.css">
   <link rel="stylesheet" type="text/css" media="screen" href="themes/css/style.css">
-
   <!-------------------------------------- CSS LINK TO SEPERATE MEDIA QUERY PAGE -------------->
   <link rel="stylesheet" type="text/css" media="screen" href="themes/css/mediaqueries.css">
+
   <!-------------------------------------- TODO: Favicon -------------------------------------->
   <!-- <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
@@ -62,48 +62,45 @@
 <body>
   <!--------- NAVIGATION ------------------------------------------------------------------------------------------>
 
-  <nav class="nav">
-    <div class="nav-menu">
-      <div class="nav-brand">
-        <img src="images/doggy.png" alt="doggo" height="50px">
-      </div>
-      <!-- [toggle burger] -->
-      <div class="toggle-collapse">
-        <div class="toggle-icons">
-          <i class="menu-toggle-btn fas fa-bars"></i> <!-- fa-times = x-symbol -->
-        </div>
-      </div>
-      <div>
-        <ul class="nav-items">
-          <!-- [Startseite] -->
-          <li class="nav-link">
-            <a href="index.php" class="home">Startseite</a>
-          </li>
-          <!-- [Adressübersicht] -->
-          <?php
-          // Ist der User eingeloggt, dann zeige DAS: 
-          if (isset($_SESSION["useruid"])) {
-            echo '<div class="adresse">
+  <header>
+    <div class="nav-brand">
+      <img src="images/doggy.png" alt="doggo" height="50px">
+    </div>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <nav>
+      <ul class="nav-items">
+        <!-- FIXME: freshly named -->
+        <li class="nav-link">
+          <a href="index.php" class="home">Startseite</a>
+        </li>
+        <!-- [Adressübersicht] -->
+        <?php
+        // Ist der User eingeloggt, dann zeige DAS: 
+        if (isset($_SESSION["useruid"])) {
+          echo '<div class="adresse">
                     <li class="nav-link">
                       <a href="menu.php">Adressübersicht</a>
                     </li>
                   </div>';
-          } //...ansonsten wird dieser Teil nicht angezeigt!
-          ?>
-        </ul>
-      </div>
+        } //...ansonsten wird dieser Teil nicht angezeigt!
+        ?>
+      </ul>
       <!-- [LOGOUT und LOGIN] -->
       <?php
       // Ist der User eingeloggt, dann zeige DAS:
       if (isset($_SESSION["useruid"])) {  // ...If so, the user is logged in! (btw useruid is the referenced username from functions.inc.php)
-        echo '<button class="login" type="button" name="logoutreg"><a href="includes/logout.inc.php">Logout</a></button>';
+        echo '<button class="btn" type="button" name="logoutreg"><a href="includes/logout.inc.php">Logout</a></button>';
       }
       // Ist der User NICHT eingeloggt, dann zeige DAS:
       else {
-        echo '<button class="login" type="button" name="logreg"><a href="logreg.php">Login / Registrierung</a></button>';
+        echo '<button class="btn" type="button" name="logreg"><a href="logreg.php">Login / Registrierung</a></button>';
       }
       ?>
-    </div>
-  </nav>
-  <hr>
+    </nav>
+    <label for="nav-toggle" class="nav-toggle-label">
+      <span></span>
+    </label>
+  </header>
+
+
   <!---x----- NAVIGATION -----x------------------------------------------------------------------------------------>

@@ -1,14 +1,11 @@
 /* Over here you will find:
-
-  - CSS Reset
-  - Custom Fonts
-  - Variables
-  - Global classes 
-  
+  - 1) CSS Reset
+  - 2) Custom Fonts
+  - 3) Root-Variables
+  - 4) Global classes 
 */
 
-
-/* === Small CSS Reset === */
+/* === 1) Small CSS Reset === */
 
 * {
   margin: 0;
@@ -21,52 +18,31 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100%;
-  /* To eliminate horizontal scrollbar */
-  overflow-y: scroll;
-  overflow-x: hidden;
-}
-.gmaps {
-  display: flex;
-  justify-content: flex-start;
-}
+/* 2) Custom Fonts von GOOGLE */
 
-#map {
-  height: 400px;
-  width: 50%;
-}
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,600');
 
-
-/* Custom Fonts for possible use */
-
-@font-face {
+/* @font-face {
   font-family: 'myFirstFont';
   src: url('../theme/fonts/SF_Shai_Fontai_Extended-webfont.woff');
   font-weight: normal;
   font-style: normal;
-}
+} */
 
 
-/* -------- CSS Variablen --------- */
+/* -------- 3) CSS Variablen --------- */
 
 :root {
   /* Themed colors https://coolors.co/ */
-  --text-gray: #2e3338;
-  --text-light: #525252da;
-  --bg-color: #0f0f0f;
-  --white: #ffffff;
-  --cherry: #fa6ebb;
-  --sakura: #f8a8c9;
-  --darkcherry: #790032;
-  --red: #c00000;
-  --light-grey: #d8d8d8;
+  --background: #595d61;
+  --font-light: #aaa;
+  --font-superlight: rgb(209, 209, 209);
+  --font-heavy: #4b4c4d;
+  --btn-yellow: linear-gradient(120deg, #ffdd00 0%, #ffffff 110%);
+  --text-yellow: #ddc700;
+  --form: linear-gradient(130deg, # )
   /* Gradient color https://webgradients.com/ */
-  --sky: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
-  --pink: linear-gradient(120deg, #fd84a2 0%, #cf4585 100%);
-  --pink-light: linear-gradient(120deg, #f1a3c4 0%, #dfa1ee 100%);
-  --pink-very-light: linear-gradient(120deg, #fd84a2 0%, #fac0db 100%);
-  --pink-heavy: linear-gradient(120deg, #a81f41 0%, #fac0db 100%);
+  
   /* Themed fonts (used in this blog) */
   --logo: 'Permanent Marker', cursive;
   /* For logo */
@@ -78,16 +54,64 @@ body {
 /* ----x---- CSS Variablen ----x---- */
 
 
-/* --------- Globale Klassen --------- */
+/* --------- 4) Globale Klassen --------- */
 
-
-/* Add a flex-row in the html to flex the object... */
-.flex-row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  /* It can collapse perfectly if the size is shrinking */
+body {
+  width: 100%;
+  /* To eliminate horizontal scrollbar */
+  overflow-y: scroll;
+  overflow-x: hidden;
+  margin: 0;
+	background: #222;
+	font-family: 'Segoe UI', sans-serif;
+	font-weight: 400;
 }
+
+textarea {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+button.btn {
+  padding: 0.4em 1.5em;
+  background: var(--btn-yellow);
+  border: 0.5px solid black;
+  border-radius: 5px;
+  display: inline-block;
+  transition: all 300ms ease-in-out;
+}
+
+button.btn:hover {
+  transform: scale(1.1);
+}
+
+button.btn a {
+  color: black;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 500; 
+}
+
+/* Spezialbutton fürs Adressformular */
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+}
+
+button.btn.adresse {
+  border: 0.5px solid var(--font-light);
+  margin: 30px 0;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  width: 90%;
+}
+
+
+
+/* --x------ Globale Klassen ------x-- */
 
 
 

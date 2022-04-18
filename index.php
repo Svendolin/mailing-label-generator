@@ -13,7 +13,9 @@ include('includes/html/header.html.php');
 
 <main>
 
-Hallo. ich bin der Index.php :D
+<div class="content">
+  <h2>Your content would go here</h2>
+</div>
 
 </main>
 
