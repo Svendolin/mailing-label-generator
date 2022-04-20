@@ -89,7 +89,9 @@ if (isset($_POST['go'])) {
 
 <div class="content">
 	<div class="emptyspace">
-		<img src="" alt="">
+		<div class="image-container">
+			<img src="images/menu-logo.jpg" alt="Menu Logo" height="140px">
+		</div>
 	</div>
 	<div class="erklaerungsbereich">
 		<a href="menu.php">Adresse eintragen</a>

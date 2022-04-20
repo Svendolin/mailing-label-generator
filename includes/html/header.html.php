@@ -63,8 +63,8 @@
   <!--------- NAVIGATION ------------------------------------------------------------------------------------------>
 
   <header>
-    <div class="nav-brand">
-      <img src="images/doggy.png" alt="doggo" height="50px">
+    <div class="image-container-logo">
+      <img src="images/logo.jpg" alt="Petikatorlogo" height="40px">
     </div>
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav>

@@ -109,6 +109,25 @@ button.btn.adresse {
   width: 90%;
 }
 
+.image-container-logo {
+  margin:16px 0 14px 8px;
+  background-size: cover;
+}
+
+.image-container img {
+  opacity: 0.6;
+}
+
+.emptyspace {
+  height: 20rem;
+  width: 100%;
+  background-color: var(--font-light);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 55px;
+}
+
 
 
 /* --x------ Globale Klassen ------x-- */

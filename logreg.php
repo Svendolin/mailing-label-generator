@@ -15,7 +15,9 @@ include('includes/html/header.html.php');
 
 <section class="index-login">
   <div class="emptyspace">
-    <img src="" alt="">
+    <div class="image-container">
+      <img src="images/logreg-logo.jpg" alt="Menu Logo" height="140px">
+    </div>
   </div>
 
   <!-- // -------- Registrierungsformular -------- // -->

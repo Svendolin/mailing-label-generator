@@ -127,14 +127,6 @@ nav a:hover {
 /* --x-------- 2) Main-Area (index.php) --------x-- */
 /* ----------- 3) Menu-Area (menu.php / menu_berbeiten.php / menu_update.php) ----------- */
 
-.emptyspace {
-  height: 40vh;
-  width: 100%;
-  background-color: var(--font-light);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .erklaerungsbereich {
   height: 4rem;
