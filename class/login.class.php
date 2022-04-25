@@ -25,7 +25,7 @@ class Login extends Dbh {
         if($stmt->rowCount() == 0)
         {
             $stmt = null; //...Statement wird beendet...
-            header("location: ../logreg.php?error=usernotfound"); //...und der User rausgeführt!
+            header("location: ../logreg.php?error=nutzerNichtGefunden"); //...und der User rausgeführt!
             exit();
         }
         // ABER: Passt alles, nehmen wir das PASSWORT, was der User uns gegeben hat...
@@ -38,7 +38,7 @@ class Login extends Dbh {
         if($checkPwd == false)
         {
             $stmt = null;
-            header("location: ../logreg.php?error=wrongpassword");
+            header("location: ../logreg.php?error=falschesLoginPasswort");
             exit();
         }
         // B) Ist das Passwort gleich wie angegeben, kommen wir eine Runde weiter:
@@ -55,7 +55,7 @@ class Login extends Dbh {
             if($stmt->rowCount() == 0)
             {
                 $stmt = null; //...Statement wird beendet...
-                header("location: ../logreg.php?error=usernotfound");
+                header("location: ../logreg.php?error=nutzerNichtGefunden");
                 exit(); //...und auch hier wird das Statement gestoppt, wir erhalten den Fehler und werden rausbefödert!
             }
             // ABER: Passt alles, nehmen wir den NUTZERDATEN $user um die Session zu starten:

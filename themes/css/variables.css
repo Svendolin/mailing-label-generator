@@ -39,7 +39,10 @@
   --font-superlight: rgb(209, 209, 209);
   --font-heavy: #4b4c4d;
   --btn-yellow: linear-gradient(120deg, #ffdd00 0%, #ffffff 110%);
+  --btn-red: linear-gradient(120deg, #ff0000 0%, #ffffff 110%);
+  --btn-green: linear-gradient(120deg, #00ff33 0%, #ffffff 110%);
   --text-yellow: #ddc700;
+  --table: #f8e432;
   --form: linear-gradient(130deg, # )
   /* Gradient color https://webgradients.com/ */
   
@@ -78,6 +81,15 @@ button.btn {
   border-radius: 5px;
   display: inline-block;
   transition: all 300ms ease-in-out;
+}
+
+button.btn.btn_delete {
+  background: var(--btn-red);
+}
+
+button.btn.btn_update {
+  background: var(--btn-green);
+  color: white;
 }
 
 button.btn:hover {
@@ -126,6 +138,68 @@ button.btn.adresse {
   justify-content: center;
   align-items: flex-end;
   padding-bottom: 55px;
+}
+
+/* Fehlermeldungen */
+.errormessage {
+  height: 2.5rem;
+  width: 100%;
+  background-color: rgb(238, 13, 13);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.errortext, .successtext {
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* Erfolgsmeldungen */
+.successmessage {
+  height: 2.5rem;
+  width: 100%;
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.begleittext {
+  margin-top: 15px;
+}
+
+/* Bekannt aus api.js */
+.list-group {
+  list-style: none;
+  margin: 5px 0;
+}
+
+/* Bekannt aus api.js */
+#formatted-address {
+  color: green;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 18px;
+  font-weight: 500;  
+}
+
+/* Bekannt aus api.js */
+#address-components {
+  color: blue;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Bekannt aus api.js */
+#geometry {
+  color: red;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 

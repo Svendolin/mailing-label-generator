@@ -13,92 +13,193 @@ include('includes/html/header.html.php');
 ?>
 <!-----x---- Header + Navigation ----x----------------------------------------------------------------------------------->
 
-<section class="index-login">
+<section>
   <div class="emptyspace">
     <div class="image-container">
       <img src="images/logreg-logo.jpg" alt="Menu Logo" height="140px">
     </div>
   </div>
 
+  <!-- Registrierung ERROR und SUCCESSMELDUNGEN 
+      = SIGNUP-Fehler sind Teil der SignupController Klasse aus signup-controller.class.php
+  -->
+  <?php
+  if (isset($_GET["error"])) {
+    if ($_GET["error"] == "leereFelder") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Bitte lassen Sie keine Felder leer!</p>
+        </div>
+        ";
+    } else if ($_GET["error"] == "falscherNutzername") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Bitte nur Zahlen und Buchstaben verwenden!</p>
+        </div>
+        ";
+    } else if ($_GET["error"] == "falscheEmail") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Bitte geben Sie eine korrekte Email-Adresse ein!</p>
+        </div>
+      ";
+    } else if ($_GET["error"] == "falschesPasswort") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Die Passwörter stimmen nicht überein!</p>
+        </div>
+      ";
+    } else if ($_GET["error"] == "nutzerOderEmailVergeben") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Nutzername oder Email bereits vergeben!</p>
+        </div>
+      ";
+    } else if ($_GET["error"] == "stmtfailed") {
+        echo "
+          <div class='errormessage'>
+            <p class='errortext'><i class='fas fa-exclamation-circle'></i> Datenbankeintrag fehlgeschlagen!</p>
+          </div>
+        ";
+    // ERFOLGSMELDUNG
+    } else if ($_GET["error"] == "erfolg") {              
+      echo "
+        <div class='successmessage'>
+          <p class='successtext'><i class='fa-solid fa-circle-check'></i> Sie haben sich erfolgreich registriert!</p>
+        </div>
+      ";
+    }
+  }
+  ?>
+  <!--x-- Registrierung Error- Successmessages --x-->
+
+    <!-- LOGIN ERROR und SUCCESSMELDUNGEN 
+      = LOGIN-Fehler sind Teil der Login Klasse aus login.class.php
+  -->
+  <?php
+  if (isset($_GET["error"])) {
+    if ($_GET["error"] == "leereLoginFelder") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Bitte lassen Sie keine Felder leer!</p>
+        </div>
+        ";
+    } else if ($_GET["error"] == "nutzerNichtGefunden") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Nutzer konnte nicht gefunden werden!</p>
+        </div>
+        ";
+    } else if ($_GET["error"] == "falschesLoginPasswort") {
+      echo "
+        <div class='errormessage'>
+          <p class='errortext'><i class='fas fa-exclamation-circle'></i> Die Passwörter stimmen nicht überein!</p>
+        </div>
+      ";
+    } else if ($_GET["error"] == "stmtfailed") {
+        echo "
+          <div class='errormessage'>
+            <p class='errortext'><i class='fas fa-exclamation-circle'></i> Datenbankeintrag fehlgeschlagen!</p>
+          </div>
+        "; 
+    // ERFOLGSMELDUNG
+    } else if ($_GET["error"] == "willkommen") {           
+      echo "
+        <div class='successmessage'>
+          <p class='successtext'><i class='fa-solid fa-circle-check'></i> Herzlich Willkommen, ". filter_var($_SESSION["useruid"], FILTER_SANITIZE_STRING) ."!</p>
+        </div>
+      ";
+    }
+  }
+  ?>
+  <!--x-- Login Error- Successmessages --x-->
+
   <!-- // -------- Registrierungsformular -------- // -->
-  <div class="index-signup">
-    <div class="title">
-      <h2>Hier registrieren:</h2>
-      <h3>Nutzen Sie die Vorteile eines Nutzerprofils</h3>
-    </div>
-    <div class="begleittext">
-      <p>Speichern Sie Ihre Lieblingsetiketten für eine permanente Nutzung!<br>
-        Behalten Sie den Überblick Ihrer Empfängerliste und wählen diese im Menu aus ohne die Adresse mühsam abtippen zu müssen!<br>
-        Wählen Sie aus den von Ihnen gespeicherten Absenderadressen ohne diese jedes Mal neu einzugeben!</p>
-    </div>
-
-    <!-- 
+  <div class="grid-logreg-container">
+    <div class="grid-reg">
+      <!-- 
               1) form-tag mit action="" () und method="" ()
               2) <label> und <input> eingebettet in input-field Boxen
               3) for="" des <labels> entspricht der id="" des <inputs>
               4) <input> name="" ist Zugehörigkeit zum isset-Affenschwanz durchgang
               5) <input> value="" bettet php-Werte ein, z.B: <input type="hidden" name="ID" value="< ?php echo $ID; ?>">
             -->
+      <form action="includes/signup.inc.php" method="post" enctype="multipart/form-data">
+        <div class="title">
+          <h1>REGISTRIERUNG:</h1>
+        </div>
 
-    <form action="includes/signup.inc.php" method="post" enctype="multipart/form-data">
-      <div class="input-field">
-        <label for="username"></label>
-        <input type="text" id="username" name="uid" value="" placeholder="Nutzername">
-      </div>
+        <div class="begleittext">
+          <p><strong>Nutzen Sie die Vorteile eines Nutzerprofils:</strong></p>
+          <p>- Speichern Sie Ihre Lieblingsetiketten für eine permanente Nutzung!<br>
+            - Behalten Sie den Überblick Ihrer Empfängerliste und wählen diese im Menu aus ohne die Adresse mühsam abtippen zu müssen!<br>
+            - Wählen Sie aus den von Ihnen gespeicherten Absenderadressen ohne diese jedes Mal neu einzugeben!</p>
+        </div>
+        <div class="user-details">
+          <div class="input-box">
+            <label for="username">Nutzername:</label>
+            <input type="text" id="username" name="uid" value="" placeholder="(Nur Zahlen und Buchstaben)">
+          </div>
 
-      <div class="input-field">
-        <label for="password"></label>
-        <input type="password" id="password" name="pwd" value="" placeholder="Passwort">
-      </div>
+          <div class="input-box">
+            <label for="password">Passwort:</label>
+            <input type="password" id="password" name="pwd" value="" placeholder="********">
+          </div>
 
-      <div class="input-field">
-        <label for="pwdrepeat"></label>
-        <input type="password" id="pwdrepeat" name="pwdrepeat" value="" placeholder="Passwort wiederholen">
-      </div>
+          <div class="input-box">
+            <label for="pwdrepeat">Passwort wiederholen:</label>
+            <input type="password" id="pwdrepeat" name="pwdrepeat" value="" placeholder="********">
+          </div>
 
-      <div class="input-field">
-        <label for="email"></label>
-        <input type="text" id="email" name="email" value="" placeholder="E-mail (Keine Werbezwecke)">
-      </div>
+          <div class="input-box">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" value="" placeholder="(Keine Werbezwecke)">
+          </div>
+        </div>
 
-      <button type="submit" name="submit-signup">Los geht's!</button>
-    </form>
-  </div>
-  <hr>
-  <!-- /!/ -------- Registrierungsformular -------- /!/ -->
-
-
-  <!-- // -------- Login-Formular -------- // -->
-
-  <div class="index-signin">
-
-    <div class="title">
-      <h2>Hier einloggen:</h2>
-      <h3>Anmelden und losstarten!</h3>
+        <button class="btn" type="submit" name="submit-signup">Los geht's!</button>
+      </form>
     </div>
 
-    <!-- 
+    <!-- /!/ -------- Registrierungsformular -------- /!/ -->
+
+
+    <!-- // -------- Login-Formular -------- // -->
+    <div class="grid-log">
+      <!-- 
               1) form-tag mit action="" () und method="" ()
               2) <label> und <input> eingebettet in input-field Boxen
               3) for="" des <labels> entspricht der id="" des <inputs>
               4) <input> name="" ist Zugehörigkeit zum isset-Affenschwanz durchgang
               5) <input> value="" bettet php-Werte ein, z.B: <input type="hidden" name="ID" value="< ?php echo $ID; ?>">
             -->
-    <form action="includes/login.inc.php" method="post" enctype="multipart/form-data">
-      <div class="input-field">
-        <label for="username"></label>
-        <input type="text" id="username" name="uid" value="" placeholder="Nutzername">
-      </div>
+      <form action="includes/login.inc.php" method="post" enctype="multipart/form-data">
+        <div class="title">
+          <h1>LOGIN:</h1>
+        </div>
+        <div class="begleittext">
+          <p><strong>Hier anmelden und losstarten!</strong></p>
+        </div>
+        
+        <div class="user-details log">
+          <div class="input-box log">
+            <label for="username"></label>
+            <input type="text" id="username" name="uid" value="" placeholder="Nutzername">
+          </div>
 
-      <div class="input-field">
-        <label for="password"></label>
-        <input type="password" id="password" name="pwd" value="" placeholder="Passwort">
-      </div>
+          <div class="input-box log">
+            <label for="password"></label>
+            <input type="password" id="password" name="pwd" value="" placeholder="Passwort">
+          </div>
+          <div class="input-box">
+            <button class="btn" type="submit" name="submit-login">Login</button>
+          </div>
+        </div>
 
-      <button type="submit" name="submit-login">Login</button>
-    </form>
+
+      </form>
+    </div>
   </div>
-  <hr>
   <!-- /!/ -------- Login-Formular -------- /!/ -->
 </section>
 

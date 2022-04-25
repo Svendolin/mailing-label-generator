@@ -32,6 +32,9 @@ Aditional Tips:
   *  LoginComponent (Whith HTML, TS or JS, and CSS)
   * and...and...and...
 
+MUST ADD for alerts:
+https://sweetalert.js.org/guides/#installation
+
 
 <span style="color:orange"> (Tasks and requirements are based on the SAE Institute Zurich)</span> 
 

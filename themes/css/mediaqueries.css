@@ -2,12 +2,13 @@
   - 1) Navigation
   - 2) Main-Area (index.php)
   - 3) Menu-Area (menu.php / menu_bearbeiten.php / menu_update.php)
-  - 4) Footer
+  - 4) Login-Registrations Area (logreg.php)
+  - 5) Footer
 */
 
 /* --------- 1) Navigation --------- */
 
-@media all and (min-width: 800px) {
+@media all and (min-width: 830px) {
   .nav-toggle-label {
     display: none;
   }
@@ -69,16 +70,22 @@
   }
 
 }
-/* --x------ 1) Navigation ------x-- */
+/* --x-------- 1) Navigation ------x-- */
 /* ----------- 2) Main-Area (index.php) ----------- */
 
+
+@media all and (min-width: 600px) {
+  .forMobileAlert {
+    display: none;
+  }
+}
 
 
 /* --x-------- 2) Main-Area (index.php) --------x-- */
 /* ----------- 3) Menu-Area (menu.php / menu_berbeiten.php / menu_update.php) ----------- */
 
 @media all and (max-width: 900px) {
-  .user-details .input-box {
+  .user-details .input-box { /* Gilt auch für das logreg-Formular */
     margin-bottom: 15px;
     width: 100%;
   }
@@ -101,10 +108,15 @@
   /* Grid Bereich ADRESS-FORM (Adresseingabe) */
   .grid-form { 
     grid-area: grid-form;
-    margin: 10px;
-    width: 95%;
+    width: 97%;
   }
-/* Doofe Idee */
+
+  .grid-tabelle { 
+    grid-area: grid-tabelle;
+    width: 97%;
+  } 
+
+  /* Doofe Idee */
   .user-details {
     max-height: 300px;
     overflow-y: scroll;
@@ -114,12 +126,89 @@
     width: 0;
   }
   
-  /* Grid Bereich ADRESS-TABELLE (ADRESSLEISTE) */
-  .grid-tabelle { 
-    grid-area: grid-tabelle; 
-  } 
+  /** Map mit Suchfunktion */
+  .grid-map-container {  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: row;
+    justify-content: stretch;
+    width: 100%;
+    grid-template-areas:
+      "grid-map"
+       "grid-geolocation";
+  }
+
+  .grid-map { 
+    grid-area: grid-map;
+    width: 97%;
+  }
+
+  .grid-geolocation { 
+    grid-area: grid-geolocation;
+    width: 97%;
+  }
+
+  .local-box {
+    width: 50vw;
+  }
 }
 
+/* Für Adresslistentabelle */
+@media all and (max-width: 500px) {
+  .table thead{
+		display: none;
+	}
 
-
+	.table, .table tbody, .table tr, .table td{
+		display: block;
+		width: 100%;
+	}
+	.table tr{
+		margin-bottom:15px;
+	}
+	.table td{
+		text-align: right;
+		padding-left: 50%;
+		text-align: right;
+		position: relative;
+	}
+	.table td::before{
+		content: attr(data-label);
+		position: absolute;
+		left:0;
+		width: 50%;
+		padding-left:15px;
+		font-size:15px;
+		font-weight: bold;
+		text-align: left;
+	}
+}
 /* --x-------- 3) Menu-Area (menu.php / menu_berbeiten.php / menu_update.php) --------x-- */
+/* ----------- 4) Login + Registration (logreg.php) ------------ */
+
+@media all and (max-width: 750px) {
+  .grid-logreg-container {  
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-auto-flow: row;
+    justify-content: stretch;
+    grid-template-areas:
+      "grid-reg"
+      "grid-log";
+  }
+  
+  /* Grid Bereich ADRESS-FORM (Adresseingabe) */
+  .grid-reg { 
+    grid-area: grid-reg;
+  }
+
+  .grid-log { 
+    grid-area: grid-log;
+    margin-top: 2rem;
+  }
+
+}
+
+/* --x-------- 4) Login + Registration (logreg.php) ---------x-- */

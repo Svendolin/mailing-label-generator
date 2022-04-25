@@ -31,7 +31,7 @@ if(isset($_POST["submit-signup"])) // Entspricht name="" des Buttons
     $signup->signupUser(); 
 
     // Zurück zur Startseite (Kein Error vorhanden beim Registrieren)
-    header("location: ../logreg.php?error=none");
+    header("location: ../logreg.php?error=erfolg");
 }
 
 ?>

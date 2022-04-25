@@ -69,11 +69,22 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <nav>
       <ul class="nav-items">
-        <!-- FIXME: freshly named -->
+        <!-- [Startseite (IMMER ANGEZEIGT)] -->
         <li class="nav-link">
           <a href="index.php" class="home">Startseite</a>
         </li>
-        <!-- [Adressübersicht] -->
+        <!-- [Über uns (NUR AUSGELOGGT)] -->
+        <?php
+        // Ist der User NICHT eingeloggt, dann zeige DAS: 
+        if (!isset($_SESSION["useruid"])) {
+          echo '<div class="adresse">
+                    <li class="nav-link">
+                      <a href="#">Über&nbsp;uns</a>
+                    </li>
+                  </div>';
+        }
+        ?>
+        <!-- [Adressübersicht (NUR EINGELOGGT)] -->
         <?php
         // Ist der User eingeloggt, dann zeige DAS: 
         if (isset($_SESSION["useruid"])) {

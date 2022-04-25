@@ -16,13 +16,11 @@ if (!isset($_SESSION['useruid'])) {
 	exit();
 }
 
-
-
 // echo '<pre>';
 // print_r($_SESSION);
 // echo '</pre>';
 
-$adressId = $_SESSION['userid']; // FIXME: auch hier, warum userid und nicht adressid?
+$adressId = $_SESSION['userid']; 
 // echo $userId;
 
 /* LESEFILE = READ */
@@ -71,7 +69,7 @@ if (isset($_POST['go'])) {
 	// Methode aufrufen, createMethod(sowie die passenden Variablen aus $query)
 	$lastID = $myInstance->createMethod($idValue, $vornameValue, $nachnameValue, $strasseValue, $plzValue, $ortValue, $bemerkungenValue);
 
-	// TODO: Errorhandling
+	// FIXME: Errorhandling
 	echo '<div class="feedback_positiv">';
 	echo 'Der Datensatz wurde aufgenommen. Die ID des eingefügten Datensatzes ist ' . $lastID;
 	echo '</div>';
@@ -93,12 +91,23 @@ if (isset($_POST['go'])) {
 			<img src="images/menu-logo.jpg" alt="Menu Logo" height="140px">
 		</div>
 	</div>
+	<?php
+    // Check if this session variable exist (which is logically only, if the user is logged in):  
+    if (isset($_SESSION["useruid"])) {
+			echo "
+			<div class='successmessage'>
+				<p class='successtext'><i class='fa-solid fa-circle-check'></i> Herzlich Willkommen, ". filter_var($_SESSION["useruid"], FILTER_SANITIZE_STRING) ."!</p>
+			</div>
+		";
+    }
+    ?>
 	<div class="erklaerungsbereich">
 		<a href="menu.php">Adresse eintragen</a>
 		<a href="menu_bearbeiten.php">Adressen bearbeiten</a>
 	</div>
 
 	<div class="grid-container">
+		<!---- "Adresseingabe"-Bereich ---->
 		<div class="grid-form">
 			<form action="menu.php" method="post">
 				<div class="title">
@@ -132,7 +141,7 @@ if (isset($_POST['go'])) {
 
 					<div class="input-box">
 						<label for="bemerkungen">Bemerkungen:</label>
-						<textarea id="bemerkungen" name="bemerkungen" cols="50" rows="6" placeholder="Wichtige Adresse!"><?= $bemerkungenValue ?></textarea>
+						<textarea id="bemerkungen" name="bemerkungen" cols="50" rows="6" maxlength="30" placeholder="Maximal 30 Zeichen"><?= $bemerkungenValue ?></textarea>
 					</div>
 				</div>
 				<div class="button-container">
@@ -140,48 +149,72 @@ if (isset($_POST['go'])) {
 				</div>
 			</form>
 		</div>
+		<!--x-- "Adresseingabe"-Bereich --x-->
 
-		<!-- FORM-EINTRÄGE (Adressen) Aktueller Datensatz wird optisch-->
+		<!---- "Adressliste"-Bereich ---->
 		<div class="grid-tabelle">
 			<div class="title">
 				<h1>Adressliste</h1>
 			</div>
-			<?php foreach ($recordArray as $row) : ?>
-				<p class="explanation">
-					<?= $row['vorname'] ?> <?= $row['nachname'] ?> (ID: <?= $row['ID'] ?>)<br>
-					<?= $row['strasse'] ?> <?= $row['plz'] ?> <?= $row['ort'] ?><br>
-					<!-- Ort: <=$row['ort']?><br> -->
-				</p>
-				<p class="explanation"><?= nl2br($row['bemerkungen']) ?></p> <!-- New line to break = nl2br = Neuer Zeilenumbruch darstellen -->
+			<!-- Tabelle einbauen -->
 
-			<?php endforeach; ?>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Vorname / Nachname</th>
+						<th>Strasse</th>
+						<th>PLZ / Ort</th>
+						<th>Bemerkung</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($recordArray as $row) : ?>
+						<tr>
+							<td data-label="ID"><?= $row['ID'] ?></td>
+							<td data-label="Vorname / Nachname"><?= $row['vorname'] ?> <?= $row['nachname'] ?></td>
+							<td data-label="Strasse"><?= $row['strasse'] ?></td>
+							<td data-label="PLZ / Ort"><?= $row['plz'] ?> <?= $row['ort'] ?></td>
+							<td data-label="Bemerkung"><?= $row['bemerkungen'] ?></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
 		</div>
+		<!--x-- "Adressliste"-Bereich --x-->
 	</div>
 
-	<div class="emptyspace-two"></div>
+	<!-- Weisser Bereich -->
+	<div class="emptyspace-two"></div> 
 
 	<div class="grid-map-container">
+		<!---- "Kartenübersicht"-Bereich ---->
 		<div class="grid-map">
 			<div class="title">
 				<h1>Kartenübersicht</h1>
 			</div>
 			<div id="map"></div>
 		</div>
-
+		<!--x-- "Kartenübersicht"-Bereich --x-->
+		<!---- "Ort Lokalisieren"-Bereich ---->
 		<div class="grid-geolocation">
 			<div class="title">
 				<h1>Ort lokalisieren</h1>
 			</div>
 			<form action="" id="location-form">
 				<div class="local-box">
-					<input type="text" id="location-input" class="form-control" placeholder="Nach was möchtest du suchen?"><br>
+					<input type="text" id="location-input" class="form-control" placeholder="z.B SAE Zürich"><br>
 					<button type="submit" class="btn adresse" id="">Suchen</button>
 				</div>
 			</form>
-			<div id="formatted-address"></div> <!-- Formatierte Adresse -->
-			<div id="address-components"></div> <!-- Zugehörige Adresskomponenten (Infos) bei der Suche -->
-			<div id="geometry"></div> <!-- Latitude und Longitude-Angabe -->
+			<div class="geolog-infobox">
+				<div id="formatted-address"></div> <!-- Formatierte Adresse -->
+				<div id="address-components"></div> <!-- Zugehörige Adresskomponenten (Infos) bei der Suche -->
+				<div id="geometry"></div> <!-- Latitude und Longitude-Angabe -->
+			</div>
 		</div>
+		<!--x-- "Ort Lokalisieren" Bereich --x-->
+
 	</div>
 
 

@@ -64,26 +64,43 @@ include('includes/html/header.html.php');
 // print_r($recordArray);
 ?>
 
-<form action="menu_bearbeiten.php" method="post">
-	<!-- Da wir die "Action mit PHP" im selben File ausführen, kann action="" leergelassen werden -->
-	<table class="explanation bordered">
-		<?php foreach ($recordArray as $row) : ?>
-			<tr>
-				<td><?= $row['vorname'] ?></td>
-				<td><?= $row['nachname'] ?></td>
-				<td><?= $row['strasse'] ?></td>
-				<td><?= $row['plz'] ?></td>
-				<td><?= $row['ort'] ?></td>
+<div class="flex-box">
+	<div class="grid-tabelle bearbeiten">
+		<div class="title">
+			<h1>Adressliste</h1>
+		</div>
+		<!-- Tabelle einbauen -->
+		<form action="menu_bearbeiten.php" method="post">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Vorname / Nachname</th>
+						<th>Strasse</th>
+						<th>PLZ / Ort</th>
+						<th>Bemerkung</th>
+						<th>Adresse Anpassen</th>
+						<th>Adresse Löschen</th>
+					</tr>
+				</thead>
+				<tbody>
+					<?php foreach ($recordArray as $row) : ?>
+						<tr>
+							<td data-label="ID"><?= $row['ID'] ?></td>
+							<td data-label="Vorname / Nachname"><?= $row['vorname'] ?> <?= $row['nachname'] ?></td>
+							<td data-label="Strasse"><?= $row['strasse'] ?></td>
+							<td data-label="PLZ / Ort"><?= $row['plz'] ?> <?= $row['ort'] ?></td>
+							<td data-label="Bemerkung"><?= $row['bemerkungen'] ?></td>
+							<td data-label="Anpassen"><button class="btn btn_update" type="button"><a style="text-decoration: none; font-size:12px;" href="menu_update.php?id=<?= $row['ID'] ?>">Anpassen</a></button></td>
+							<td data-label="Löschen"><button class="btn btn_delete" type="submit" name="go" class="deleter" data-confirm="<?= $row['vorname'] ?> <?= $row['nachname'] ?>" value="<?= $row['ID'] ?>">Löschen</button></td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		</form>
+	</div>
+</div>
 
-				<!-- UPDATE BUTTON (link) -->
-				<td><button type="button"><a href="menu_update.php?id=<?= $row['ID'] ?>">Update</a></button>
-				<td>
-					<!-- DELETE BUTTON -->
-				<td><button type="submit" name="go" class="deleter" data-confirm="<?= $row['vorname'] ?> <?= $row['nachname'] ?>" value="<?= $row['ID'] ?>">Delete</button></td>
-			</tr>
-		<?php endforeach; ?>
-	</table>
-</form>
 <script>
 	// Javascript: Gebe Confirm-Fenster mit Hinweis aus
 	// 1) DOM-Manipulation: Dadurch herausfinden, welche Buttons die Klasse Deleter haben = Nur unsere Deletebuttons somit (Siehe class="deleter")

@@ -99,7 +99,7 @@
         // ``= Template String, um auf mehreren Zeilen den String auszuführen / Mit ${} setzen wir eine Variable rein
         let formattedAdressOutput = ` 
         <ul class="list-group">
-          <li class="list-group-item">${formattedAdress}</li> 
+          <li class="list-group-item"><strong> ${formattedAdress}</strong></li> 
         <ul>
         `;
 
@@ -108,7 +108,7 @@
         let addressComponentsOutput = '<ul class="list-group">'; // Starttag
         for(let i = 0; i < addressComponents.length; i++){
           addressComponentsOutput += `
-            <li class="list-group-item"><strong>${addressComponents[i].types[0]}</strong>:${addressComponents[i].long_name}</li>
+            <li class="list-group-item"><strong> ${addressComponents[i].types[0]}</strong>: ${addressComponents[i].long_name}</li>
           `;
         }
         addressComponentsOutput += '</ul>'; // Endtag
@@ -119,8 +119,8 @@
         // ``= Template String, um auf mehreren Zeilen den String auszuführen / Mit ${} setzen wir eine Variable rein
         let geometryOutput = ` 
         <ul class="list-group">
-          <li class="list-group-item"><strong>Latitude</strong>:${latitude}</li> 
-          <li class="list-group-item"><strong>Longitude</strong>:${longitude}</li> 
+          <li class="list-group-item"><strong>Latitude</strong>: ${latitude}</li> 
+          <li class="list-group-item"><strong>Longitude</strong>: ${longitude}</li> 
         <ul>
         `;
 

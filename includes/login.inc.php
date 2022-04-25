@@ -30,7 +30,7 @@ if(isset($_POST["submit-login"])) // Entspricht name="" des Buttons
     $login->loginUser();
 
     // Zurück zur Startseite (Kein Error vorhanden beim Registrieren)
-    header("location: ../menu.php?error=none");
+    header("location: ../menu.php?error=willkommen");
 }
 
 

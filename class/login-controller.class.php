@@ -24,7 +24,7 @@ class loginController extends Login {
         // 1) Errorhandler-IF-Statement.
         if($this->emptyInput() == false) {
             // echo "Empty input!";
-            header("location: ../logreg.php?error=emptyinput");
+            header("location: ../logreg.php?error=leereLoginFelder");
             exit();
         }
         // 0) Mehr Error-Handlers hierbei anfügen, falls gewünscht...

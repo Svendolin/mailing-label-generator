@@ -28,35 +28,34 @@ class SignupController extends Signup {
   }
 
   // Usersignup-Methode: Errorhandling-Definition, die nach und nach erfüllt werden müssen, um nicht "hängen zu bleiben"... 
-  // (TODO: Error Handlers dazu passend in logreg.php einbauen)
   // (Die einzelnen Methoden, welche den Sachverhalt prüfen, sind unten aufgeführt)
   // Hier RUFEN WIR DIE ERROR-HANDLER-METHODEN AUF:
   public function signupUser() {
       if($this->emptyInput() == false) {
           // 1) echo "Empty input!";
-          header("location: ../logreg.php?error=emptyinput");
+          header("location: ../logreg.php?error=leereFelder");
           exit();
       }
       if($this->invalidUid() == false) {
           // 2) echo "Invalid username!";
-          header("location: ../logreg.php?error=username");
+          header("location: ../logreg.php?error=falscherNutzername");
           exit();
       }
       if($this->invalidEmail() == false) {
           // 3) echo "Invalid email!";
-          header("location: ../logreg.php?error=email");
+          header("location: ../logreg.php?error=falscheEmail");
           exit();
       }
       if($this->pwdMatch() == false)
       {
           // 4) echo "Passwords don't match!";
-          header("location: ../index.php?error=passwordmatch");
+          header("location: ../index.php?error=falschesPasswort");
           exit();
       }
       if($this->uidTakenCheck() == false)
       {
           // 5) echo "Username or email taken!";
-          header("location: ../logreg.php?error=useroremailtaken");
+          header("location: ../logreg.php?error=nutzerOderEmailVergeben");
           exit();
       }
       // Passt alles: Instanzierung der Methode setUser(), was wir aus signup.class.php definiert haben (Methode um User zu setzen)
