@@ -91,8 +91,8 @@ include('includes/html/header.html.php');
 							<td data-label="Strasse"><?= $row['strasse'] ?></td>
 							<td data-label="PLZ / Ort"><?= $row['plz'] ?> <?= $row['ort'] ?></td>
 							<td data-label="Bemerkung"><?= $row['bemerkungen'] ?></td>
-							<td data-label="Anpassen"><button class="btn btn_update" type="button"><a style="text-decoration: none; font-size:12px;" href="menu_update.php?id=<?= $row['ID'] ?>">Anpassen</a></button></td>
-							<td data-label="Löschen"><button class="btn btn_delete" type="submit" name="go" class="deleter" data-confirm="<?= $row['vorname'] ?> <?= $row['nachname'] ?>" value="<?= $row['ID'] ?>">Löschen</button></td>
+							<td data-label="Anpassen"><a href="menu_update.php?id=<?= $row['ID'] ?>"><button class="updater" type="button">Anpassen</button></a></td>
+							<td data-label="Löschen"><button type="submit" name="go" class="deleter" data-confirm="<?= $row['vorname'] ?> <?= $row['nachname'] ?>" value="<?= $row['ID'] ?>">Löschen</button></td>
 						</tr>
 					<?php endforeach; ?>
 				</tbody>
@@ -104,14 +104,14 @@ include('includes/html/header.html.php');
 <script>
 	// Javascript: Gebe Confirm-Fenster mit Hinweis aus
 	// 1) DOM-Manipulation: Dadurch herausfinden, welche Buttons die Klasse Deleter haben = Nur unsere Deletebuttons somit (Siehe class="deleter")
-	var deleteButtons = document.querySelectorAll('.deleter');
+	let deleteButtons = document.querySelectorAll('.deleter');
 
 	// 2) Jeder Button erhält ein Eventlistener
-	for (var i = 0; i < deleteButtons.length; i++) {
+	for (let i = 0; i < deleteButtons.length; i++) {
 		deleteButtons[i].addEventListener('click', function(event) {
 			// 3) confirm = Ein Modales Alertfenster, das aufploppt
 			// Falls ok-klicken
-			var go = confirm('Möchten Sie die Adresse von ' + this.getAttribute('data-confirm') + ' wirklich löschen?\nDieser Vorgang ist unwiderruflich!'); //get-attribute aus dataconfirm des deleterbuttons Zeile 43
+			let go = confirm('Möchten Sie die Adresse von ' + this.getAttribute('data-confirm') + ' wirklich löschen?\nDieser Vorgang ist unwiderruflich!'); //get-attribute aus dataconfirm des deleterbuttons Zeile 43
 			// Falls abbrechen-klicken
 			if (go == false) {
 				event.preventDefault();

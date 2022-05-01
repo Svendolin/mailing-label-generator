@@ -157,7 +157,7 @@ include('includes/html/header.html.php');
           </div>
         </div>
 
-        <button class="btn" type="submit" name="submit-signup">Los geht's!</button>
+        <button class="btn" type="submit" name="submit-signup">Jetzt registrieren!</button>
       </form>
     </div>
 
@@ -192,7 +192,7 @@ include('includes/html/header.html.php');
             <input type="password" id="password" name="pwd" value="" placeholder="Passwort">
           </div>
           <div class="input-box">
-            <button class="btn" type="submit" name="submit-login">Login</button>
+            <button class="btn login" type="submit" name="submit-login">Login</button>
           </div>
         </div>
 

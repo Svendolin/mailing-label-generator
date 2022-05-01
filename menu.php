@@ -102,7 +102,7 @@ if (isset($_POST['go'])) {
     }
     ?>
 	<div class="erklaerungsbereich">
-		<a href="menu.php">Adresse eintragen</a>
+		<a href="menu.php">Neue Adresse eintragen</a>
 		<a href="menu_bearbeiten.php">Adressen bearbeiten</a>
 	</div>
 
@@ -145,7 +145,7 @@ if (isset($_POST['go'])) {
 					</div>
 				</div>
 				<div class="button-container">
-					<button class="btn adresse" type="submit" name="go">Adresse speichern</button>
+					<button onclick="javascript:location.reload();" class="adressbutton" type="submit" name="go">Adresse speichern</button>
 				</div>
 			</form>
 		</div>
@@ -204,7 +204,7 @@ if (isset($_POST['go'])) {
 			<form action="" id="location-form">
 				<div class="local-box">
 					<input type="text" id="location-input" class="form-control" placeholder="z.B SAE Zürich"><br>
-					<button type="submit" class="btn adresse" id="">Suchen</button>
+					<button type="submit" class="suchbutton" id="">Suchen</button>
 				</div>
 			</form>
 			<div class="geolog-infobox">

@@ -79,29 +79,92 @@ button.btn {
   background: var(--btn-yellow);
   border: 0.5px solid black;
   border-radius: 5px;
-  display: inline-block;
   transition: all 300ms ease-in-out;
-}
-
-button.btn.btn_delete {
-  background: var(--btn-red);
-}
-
-button.btn.btn_update {
-  background: var(--btn-green);
-  color: white;
+  color: black;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-block;
 }
 
 button.btn:hover {
   transform: scale(1.1);
 }
 
-button.btn a {
+button.btn.login {
+  margin-top: 15px;
+}
+
+/* menu.php Adresseingabe */
+button.adressbutton {
+  padding: 0.4em 3.5em;
+  background: var(--btn-yellow);
+  border: 0.5px solid black;
+  border-radius: 5px;
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  border: 0.5px solid var(--font-light);
+  margin: 30px 0;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 300ms ease-in-out;
+}
+
+/* menu.php Ort lokalisieren */
+button.suchbutton {
+  padding: 0.4em 5.5em;
+  background: var(--btn-yellow);
+  border: 0.5px solid black;
+  border-radius: 5px;
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  border: 0.5px solid var(--font-light);
+  margin: 30px 0;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  font-weight: 500;
+  transition: all 300ms ease-in-out;
+}
+
+/* menu_bearbeiten.php */
+button.deleter {
+  padding: 0.4em 1.5em;
+  background: var(--btn-red);
+  border: 0.5px solid black;
+  border-radius: 5px;
+  transition: all 300ms ease-in-out;
   color: black;
   font-family: 'Segoe UI', sans-serif;
-  font-size: 15px;
-  font-weight: 500; 
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
 }
+
+/* menu_bearbeiten.php */
+button.updater {
+  padding: 0.4em 1.5em;
+  background: var(--btn-green);
+  border: 0.5px solid black;
+  border-radius: 5px;
+  transition: all 300ms ease-in-out;
+  color: black;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  display: inline-block;
+  text-decoration: none;
+}
+
+button.deleter:hover, button.updater:hover, 
+button.adressbutton:hover, button.suchbutton:hover {
+  transform: scale(1.1);
+}
+
 
 /* Spezialbutton fürs Adressformular */
 
@@ -111,14 +174,6 @@ button.btn a {
   align-items: center;
   width: 100%;
   height: 80px;
-}
-
-button.btn.adresse {
-  border: 0.5px solid var(--font-light);
-  margin: 30px 0;
-  font-family: 'Segoe UI', sans-serif;
-  font-weight: 600;
-  width: 90%;
 }
 
 .image-container-logo {

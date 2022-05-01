@@ -14,8 +14,8 @@
   <title>Postpaketadressator</title>
   <!-------------------------------------- CDN FONTAWESOME ICONS (Keep me updated) -------------------------------------->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-------------------------------------- TODO: GOOGLE FONTS LINK -------------------------------------->
-
+  <!-------------------------------------- Print.js to include modal feature -------------------------------------->
+  <link rel="stylesheet" type="text/css" href="print.css">
   <!-------------------------------------- TODO: OWL-CAROUSEL -------------------------------------->
   <!-- <link rel="stylesheet" type="text/css" media="screen" href="themes/css/owl.carousel.min.css">
   <link rel="stylesheet" type="text/css" media="screen" href="themes/css/owl.theme.default.min.css"> -->
@@ -53,6 +53,8 @@
   <!-- <script src="themes/js/owl.carousel.min.js" defer></script> -->
   <!-------------------------------------- TODO: AOS Library JS ---------------------------------->
   <!-- <script src="themes/js/aos.js" defer></script> -->
+  <!-------------------------------------- Print.js Library ---------------------------------->
+  <script src="print.js"></script>
   <!-------------------------------------- JS REGULAR CONNECTION --------------------------------->
   <script src="themes/js/main.js" defer></script>
   <!-------------------------------------- JS API CONNECTION ------------------------------------->
@@ -99,12 +101,20 @@
       <!-- [LOGOUT und LOGIN] -->
       <?php
       // Ist der User eingeloggt, dann zeige DAS:
-      if (isset($_SESSION["useruid"])) {  // ...If so, the user is logged in! (btw useruid is the referenced username from functions.inc.php)
-        echo '<button class="btn" type="button" name="logoutreg"><a href="includes/logout.inc.php">Logout</a></button>';
+      if (isset($_SESSION["useruid"])) { 
+        echo '
+        <a href="includes/logout.inc.php">
+          <button class="btn" type="button" name="logoutreg">Logout</button>
+        </a>
+        ';
       }
       // Ist der User NICHT eingeloggt, dann zeige DAS:
       else {
-        echo '<button class="btn" type="button" name="logreg"><a href="logreg.php">Login / Registrierung</a></button>';
+        echo '
+        <a href="logreg.php">
+          <button class="btn" type="button" name="logreg">Login / Registrierung</button>
+        </a>
+        ';
       }
       ?>
     </nav>
@@ -112,6 +122,7 @@
       <span></span>
     </label>
   </header>
+  
 
 
   <!---x----- NAVIGATION -----x------------------------------------------------------------------------------------>
