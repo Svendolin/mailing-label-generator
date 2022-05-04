@@ -14,22 +14,20 @@
   <title>Postpaketadressator</title>
   <!-------------------------------------- CDN FONTAWESOME ICONS (Keep me updated) -------------------------------------->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-------------------------------------- Print.js to include modal feature -------------------------------------->
-  <link rel="stylesheet" type="text/css" href="print.css">
-  <!-------------------------------------- TODO: OWL-CAROUSEL -------------------------------------->
-  <!-- <link rel="stylesheet" type="text/css" media="screen" href="themes/css/owl.carousel.min.css">
-  <link rel="stylesheet" type="text/css" media="screen" href="themes/css/owl.theme.default.min.css"> -->
-  <!-------------------------------------- TODO: AOS Library CSS ---------------------------------->
-  <!-- (Animate on scroll) https://michalsnik.github.io/aos/ > download > dist > copy aos.js and aos.css -->
-  <!-- <link rel="stylesheet" href="themes/css/aos.css"> -->
+  <!-------------------------------------- Swiper.js CSS CONNECTION -------------------------------------->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
   <!-------------------------------------- CSS LINKS -------------------------------------->
   <link rel="stylesheet" type="text/css" media="screen" href="themes/css/variables.css">
+  <link rel="Stylesheet" type="text/css" media="print" href="themes/css/print.css"/>
   <link rel="stylesheet" type="text/css" media="screen" href="themes/css/style.css">
+  <link rel="stylesheet" type="text/css" media="screen" href="themes/css/ettikatordesigns.css">
   <!-------------------------------------- CSS LINK TO SEPERATE MEDIA QUERY PAGE -------------->
   <link rel="stylesheet" type="text/css" media="screen" href="themes/css/mediaqueries.css">
 
-  <!-------------------------------------- TODO: Favicon -------------------------------------->
-  <!-- <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+  <!-------------------------------------- Favicon -------------------------------------->
+  <!-- <link rel="icon" type="image/x-icon" href="../../images/favicon/logo.ico"> -->
+
+  <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
   <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
   <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
   <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
@@ -44,7 +42,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff"> -->
+  <meta name="theme-color" content="#ffffff">
+
   <!-------------------------------------- JQUERY / JAVASCRIPT CONNECTION ------------------------>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
   <!-------------------------------------- AXIOS CONNECTION -------------------------------------->
@@ -53,8 +52,8 @@
   <!-- <script src="themes/js/owl.carousel.min.js" defer></script> -->
   <!-------------------------------------- TODO: AOS Library JS ---------------------------------->
   <!-- <script src="themes/js/aos.js" defer></script> -->
-  <!-------------------------------------- Print.js Library ---------------------------------->
-  <script src="print.js"></script>
+  <!-------------------------------------- JSWIPER.JS CONNECTION ------------------------------------->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js" defer></script>
   <!-------------------------------------- JS REGULAR CONNECTION --------------------------------->
   <script src="themes/js/main.js" defer></script>
   <!-------------------------------------- JS API CONNECTION ------------------------------------->
@@ -101,7 +100,7 @@
       <!-- [LOGOUT und LOGIN] -->
       <?php
       // Ist der User eingeloggt, dann zeige DAS:
-      if (isset($_SESSION["useruid"])) { 
+      if (isset($_SESSION["useruid"])) {
         echo '
         <a href="includes/logout.inc.php">
           <button class="btn" type="button" name="logoutreg">Logout</button>
@@ -122,7 +121,7 @@
       <span></span>
     </label>
   </header>
-  
+
 
 
   <!---x----- NAVIGATION -----x------------------------------------------------------------------------------------>

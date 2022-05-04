@@ -74,14 +74,14 @@
 /* ----------- 2) Main-Area (index.php) ----------- */
 
 
-@media all and (min-width: 670px) {
+@media all and (min-width: 730px) {
   .forMobileAlert {
     display: none;
   }
 }
 
-@media all and (max-width: 670px) {
-  #desktopcontent {
+@media all and (max-width: 730px) {
+  .swiperstuff, .desktopcontent, .emptyspace-two {
     display: none;
   }
 }

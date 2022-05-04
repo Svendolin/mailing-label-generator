@@ -1,0 +1,50 @@
+header {
+  display: none;
+}
+
+.emptyspace {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15rem;
+}
+
+.image-container img {
+  height: 80px;
+}
+
+.erklaerungsbereich.index {
+  display: none;
+}
+
+section.swiperstuff {
+  display: none;
+}
+
+.swiper-button-next, .swiper-button-prev {
+  display: none;
+}
+
+.underConstruction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.underConstruction img {
+  width: 50%;
+}
+
+.underConstruction h2 {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+.content.mobile {
+  display: none;
+}
+
+footer.footer {
+  display: none;
+}

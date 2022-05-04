@@ -1,0 +1,156 @@
+
+/* Design Folie 1 - KlassischGelb */
+.ettikatorbox {
+  width: 630px;
+  background-image: url('../../images/ettiketten/KlassischGelb.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 2 - KlassischBlau */
+.ettikatorbox2 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/KlassischBlau.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 3 - KlassischPink */
+.ettikatorbox3 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/KlassischPink.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+  /* Design Folie 4 - KlassischViolett */
+.ettikatorbox4 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/KlassischViolett.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 5 - KlassischWeiss */
+.ettikatorbox5 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/KlassischWeiss.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 6 - Musiker */
+.ettikatorbox6 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/Musiker.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 7 - Schmutzig */
+.ettikatorbox7 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/Schmutzig.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 8 - Tierfreunde1 */
+.ettikatorbox8 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/Tierfreunde1.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 9 - Tierfreunde2 */
+.ettikatorbox9 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/Tierfreunde2.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 10 - UnisGelb */
+.ettikatorbox10 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/UnisGelb.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 11 - UnisGrau */
+.ettikatorbox11 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/UnisGrau.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 12 - UnisGruen */
+.ettikatorbox12 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/UnisGruen.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+/* Design Folie 13 - UnisRot */
+.ettikatorbox13 {
+  width: 630px;
+  background-image: url('../../images/ettiketten/UnisRot.jpg');
+  background-size: contain;
+  height: 444px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+}

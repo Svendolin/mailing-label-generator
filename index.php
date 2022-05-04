@@ -1,7 +1,5 @@
 <?php
-// TODO: require_once für alles Notwendige
-
-// TODO: Session
+// Session
 session_start();
 ?>
 
@@ -18,72 +16,40 @@ include('includes/html/header.html.php');
 		</div>
 	</div>
 
-	<div id="desktopcontent">
 
-		<!-- Ettikator Slider -->
-		<div class="slidercontainer">
-		<div id="ettikatorbox">
-			<div class="absendercontainer">
-				<form class="absender" action="">
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="Peter Muster" value="">
-					</div>
-
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="Musterstrasse 10" value="">
-					</div>
-
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="1212 Musteringen" value="">
-					</div>
-				</form>
-			</div>
-
-			<div class="empfaengercontainer">
-				<form class="empfaenger" action="">
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="VORNAME NAME" value="">
-					</div>
-
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="STRASSE NR" value="">
-					</div>
-
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="POSTLEITZAHL" value="">
-					</div>
-
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="ORT" value="">
-					</div>
-
-					<div>
-						<label for="bla"></label>
-						<input type="text" id="bla" name="" placeholder="" value="">
-					</div>
-				</form>
-			</div>
-
-		</div>
-		<div class="printout">
-			<button id="print" class="btn btn-print">Ausdrucken</button>
+	<div class="erklaerungsbereich index">
+		<div class="title">
+			<p><i class="fa-solid fa-money-check"></i>&nbsp;&nbsp;Wählen Sie Ihr Lieblings-Ettikettendesign aus unzähligen Motiven für Ihren nächsten Paketversand.</p>
+			<p><i class="fa-solid fa-address-book"></i>&nbsp;&nbsp;Führen Sie Ihr eigenes digitales Adressbuch indem Sie sich hier kostenlos registrieren.</p>
+			<p><i class="fa-solid fa-file-circle-check"></i>&nbsp;&nbsp;Unsere Ettiketten sind bei allen schweizer Poststellen anerkannt und zugelassen.</p>
 		</div>
 	</div>
-	</div>
 
-	<div class="emptyspace-two"></div> 
 
-	<div class="desktopcontent">
-		
-	</div>
+	<section class="swiperstuff">
+		<div class="swiper mySwiper">
+			<div class="swiper-wrapper">
+				<!-- FOLIE 1 - 13 -->
 
+				<!-- INCLUDE zu unseren 13 Folien des Sliders -->
+				<?php
+				include('includes/html/ettiketten.html.php');
+				?>
+				
+			</div>
+			<div class="swiper-button-next"></div>
+			<div class="swiper-button-prev"></div>
+			<div class="swiper-pagination"></div>
+		</div>
+	</section>
+
+	<!-- Inhalt für den PDF-TEIL TODO: Spätere Anpassungen machen -->
+	<section class="underConstruction">
+		<img src="images/supercute.jpg" alt="supercutekitten">
+		<h2>I'm purrently under construction for later. Sorry :3</h2>
+	</section>
+
+	
 	<!-- Inhalt für den mobilen Bereich unter 600px Breite -->
 	<div class="content mobile">
 		<div class="forMobileAlert">

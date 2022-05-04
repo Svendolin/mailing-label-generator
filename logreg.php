@@ -131,9 +131,9 @@ include('includes/html/header.html.php');
 
         <div class="begleittext">
           <p><strong>Nutzen Sie die Vorteile eines Nutzerprofils:</strong></p>
-          <p>- Speichern Sie Ihre Lieblingsetiketten für eine permanente Nutzung!<br>
-            - Behalten Sie den Überblick Ihrer Empfängerliste und wählen diese im Menu aus ohne die Adresse mühsam abtippen zu müssen!<br>
-            - Wählen Sie aus den von Ihnen gespeicherten Absenderadressen ohne diese jedes Mal neu einzugeben!</p>
+          <li> Führen Sie Ihr persönliches Adressbuch</li>
+          <li> Bearbeiten und löschen Sie Ihre Adresseinträge nach Belieben</li>
+          <li> Nutzen Sie die Vorteile von GOOGLE MAPS mithilfe des Karten- und Geolocation Profils</li>
         </div>
         <div class="user-details">
           <div class="input-box">
@@ -178,6 +178,7 @@ include('includes/html/header.html.php');
           <h1>LOGIN:</h1>
         </div>
         <div class="begleittext">
+          <p><strong>Haben Sie sich bereits registriert?</strong></p>
           <p><strong>Hier anmelden und losstarten!</strong></p>
         </div>
         

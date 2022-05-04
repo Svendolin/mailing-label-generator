@@ -43,6 +43,19 @@ include('includes/html/header.html.php');
 <!-----x---- Header + Navigation ----x----------------------------------------------------------------------------------->
 
 
+	<div class="emptyspace">
+		<div class="image-container">
+			<img src="images/menu-bearbeiten-logo.jpg" alt="Menu Logo" height="140px">
+		</div>
+	</div>
+	<div class="erklaerungsbereich">
+		<a href="menu.php">Neue Adresse eintragen</a>
+		<a href="menu_bearbeiten.php">Adressen bearbeiten</a>
+	</div>
+
+	
+
+
 <?php
 // Prüfen, ob der Submit-Button geklickt wurde:
 if (isset($_POST['go'])) {
@@ -59,12 +72,14 @@ if (isset($_POST['go'])) {
 	// 2) Instanzierung der Update-Methode:
 	$myInstance->updateMethod($idValue, $vornameValue, $nachnameValue, $strasseValue, $plzValue, $ortValue, $bemerkungenValue);
 
-	// FIXME: Errorhandling
-	echo "<div class=\"feedback_positiv\">";
-	echo "Der Datensatz wurde gesichert.";
-	echo "</div>\n";
-	echo "</body>";
-	echo "</html>";
+	// Ausgabe des Abschnittes, welcher nach ERFOLGREICHER EINGABE ercheint
+	echo "
+			<div class='successmessage'>
+				<p class='successtext'><i class='fa-solid fa-circle-check'></i> Die Adresse wurde erfolgreich angepasst!</p>
+			</div>
+		";
+	echo "<div class='emptyspace'></div>";
+	echo include('includes/html/footer.html.php');
 	// Ausgabe beenden
 	exit();
 } else {
@@ -111,15 +126,9 @@ htmlentities($str);
 
 ?>
 
-<div class="emptyspace">
-	<div class="image-container">
-		<img src="images/menu-bearbeiten-logo.jpg" alt="Menu Logo" height="140px">
-	</div>
-</div>
-
 <section class="flex-box">
 	<div class="grid-form update">
-		<form action="menu.php" method="post">
+		<form action="menu_update.php" method="post">
 			<div class="title">
 				<h1>Adresseingabe bearbeiten</h1>
 			</div>

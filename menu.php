@@ -70,9 +70,10 @@ if (isset($_POST['go'])) {
 	$lastID = $myInstance->createMethod($idValue, $vornameValue, $nachnameValue, $strasseValue, $plzValue, $ortValue, $bemerkungenValue);
 
 	// FIXME: Errorhandling
-	echo '<div class="feedback_positiv">';
+	echo '<div class="successmassage">';
 	echo 'Der Datensatz wurde aufgenommen. Die ID des eingefügten Datensatzes ist ' . $lastID;
 	echo '</div>';
+	
 } else {
 	// nein, setzte die Variablen leer, damit beim ersten Affenschwanz-Durchgang kein Fehler generiert wird
 	$idValue = "";

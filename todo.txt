@@ -5,3 +5,4 @@
 - Abschnitt ausdrucken
 - Fehler beheben
 - Readme anpassen
+- API Key verschlüsseln

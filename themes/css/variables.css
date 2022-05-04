@@ -195,6 +195,62 @@ button.adressbutton:hover, button.suchbutton:hover {
   padding-bottom: 55px;
 }
 
+.erklaerungsbereich {
+  min-height: 4rem;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.erklaerungsbereich.index {
+  min-height: 9rem; 
+  padding: 20px 20px;
+}
+
+.erklaerungsbereich.index p {
+  font-size: 16px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.erklaerungsbereich a {
+  text-decoration: none;
+  text-align: center;
+  color: var(--text-yellow);
+  display: inline-block;
+  border: 1.5px solid var(--text-yellow);
+  border-radius: 10px;
+  padding: 5px 10px 7px 10px;
+}
+
+.erklaerungsbereich a:hover {
+  color: black;
+  border: 1.5px solid black;
+}
+
+
+
+/* Formularfelder Adresseingabe */
+.title {
+  display: block;
+  font-size: 15px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.title:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 30px;
+  background: var(--text-yellow);
+}
+
 /* Fehlermeldungen */
 .errormessage {
   height: 2.5rem;
@@ -256,6 +312,8 @@ button.adressbutton:hover, button.suchbutton:hover {
   font-size: 15px;
   font-weight: 500;
 }
+
+
 
 
 

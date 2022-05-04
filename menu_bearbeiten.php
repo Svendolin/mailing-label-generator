@@ -57,7 +57,7 @@ include('includes/html/header.html.php');
 	</div>
 </div>
 <div class="erklaerungsbereich">
-	<a href="menu.php">Adresse eintragen</a>
+	<a href="menu.php">Weitere Adressen eintragen</a>
 	<a href="menu_bearbeiten.php">Adressen bearbeiten</a>
 </div>
 <?php
