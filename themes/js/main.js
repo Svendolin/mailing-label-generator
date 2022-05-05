@@ -1,33 +1,5 @@
-/* Adressbetätigung aus menu.php:
-  - Durch KLICK wird eine neue Adresse hinzugefügt
-  - Die Seite wird neu geladen, dadurch wird die Adresse nach dem Klick direkt angezeigt
-*/
 
-
-
-// jQuery('.adressbutton').click(function()
-// {
-// location.reload();
-// });
-
-
-
-// const printJS = require("print-js");
-
-// function printForm() {
-//   printJS({
-//     printable: 'ettikatorbox',
-//     type: 'html',
-//     targetStyles: ['*']
-//   })
-// }
-
-// printForm()
-
-// $('#print').click(function(){
-//   $('#ettikatorbox').printThis();
-// })
-
+/* Funktion der Swiper Gallery */
 var swiper = new Swiper(".mySwiper", {
   slidesPerView: 1,
   spaceBetween: 30,
@@ -40,4 +12,52 @@ var swiper = new Swiper(".mySwiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
+});
+
+
+/* SweetAlert2 Funktion */
+$('#btn-update').on('click', function(){
+  Swal.fire({
+    title: 'Are you sure?',
+    text: "You won't be able to revert this!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Deleted!',
+        'Your file has been deleted.',
+        'success'
+      )
+      location.href = self.Attr('href');
+    }
+  })
+})
+
+$('#saveaddress').on('click', function(e){
+  e.preventdefault();
+  const href = $(this).attr('href')
+  Swal.fire(
+    'Good job!',
+    'You clicked the button!',
+    'success'
+  )
+})
+
+$('#logout').on('click', function(){
+  
+})
+
+
+$("#btn").click(function(){
+  // JQUERY CODE contains three parameters: (1)               (2)                   (3)
+  $("#test").load("data.txt", {   // .load(FILE, {DATA to pass data if you want}, CALLBACK ) = Ajax
+    Name: "Daniel", 
+    Lastname: "Düsentrieb"
+  }, function() {
+      alert("Hi there!")
+  }); 
 });

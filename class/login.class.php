@@ -9,21 +9,22 @@ Welcher Inhalt erwartet mich?
 */
 
 // Login wird SUBKLASSE von unserer Dbh in dbh.class.php:
-class Login extends Dbh {
+class Login extends Dbh
+{
 
     // --- Methode, um USER ZU KRIEGEN (selecten, damit er user_pwd Column aus users checkt. Der Nutzername oder die Email müssen zum eingegeben Passwort passen!) --- //
-    protected function getUser($uid, $pwd) {
+    protected function getUser($uid, $pwd)
+    {
         $stmt = $this->connect()->prepare('SELECT users_pwd FROM users WHERE users_uid = ? OR users_email = ?;');
 
         // ! = Wenn dieses Statement fehlschlägt, ausgeführt zu werden, dann...
-        if(!$stmt->execute(array($uid, $pwd))) {
+        if (!$stmt->execute(array($uid, $pwd))) {
             $stmt = null;
-            header("location: ../logreg.php?error=stmtfailed"); 
+            header("location: ../logreg.php?error=stmtfailed");
             exit(); //...wird das Statement gestoppt, wir erhalten den Fehler und werden rausbefödert!
         }
         // Wenn wir 0 Anfragen / Resultate bekommen, dann hauen wir diese Meldung raus...
-        if($stmt->rowCount() == 0)
-        {
+        if ($stmt->rowCount() == 0) {
             $stmt = null; //...Statement wird beendet...
             header("location: ../logreg.php?error=nutzerNichtGefunden"); //...und der User rausgeführt!
             exit();
@@ -35,25 +36,23 @@ class Login extends Dbh {
         //...und als TRUE ausgegeben wird. Falls nicht, dann:
 
         // A) Prüfen, ob das Angegebene Passwort nicht das Gleiche ist wie notiert!
-        if($checkPwd == false)
-        {
+        if ($checkPwd == false) {
             $stmt = null;
             header("location: ../logreg.php?error=falschesLoginPasswort");
             exit();
         }
         // B) Ist das Passwort gleich wie angegeben, kommen wir eine Runde weiter:
-        elseif($checkPwd == true) {
+        elseif ($checkPwd == true) {
             // Wie oben, nur prüfen wir dieses Mal: Username oder Email aus unserer Tabelle müssen mit dem Passwort übereinstimmen:
             $stmt = $this->connect()->prepare('SELECT * FROM users WHERE users_uid = ? OR users_email = ? AND users_pwd = ?;');
             // ! = Wenn dieses Statement fehlschlägt, ausgeführt zu werden, dann...
-            if(!$stmt->execute(array($uid, $uid, $pwd))) { // Zweimal $uid, da der User entweder oder Email / Username eingibt.
+            if (!$stmt->execute(array($uid, $uid, $pwd))) { // Zweimal $uid, da der User entweder oder Email / Username eingibt.
                 $stmt = null;
                 header("location: ../logreg.php?error=stmtfailed");
                 exit(); //...wird das Statement gestoppt, wir erhalten den Fehler und werden rausbefödert!
             }
             // Wenn wir 0 Anfragen / Resultate bekommen, dann hauen wir diese Meldung raus...
-            if($stmt->rowCount() == 0)
-            {
+            if ($stmt->rowCount() == 0) {
                 $stmt = null; //...Statement wird beendet...
                 header("location: ../logreg.php?error=nutzerNichtGefunden");
                 exit(); //...und auch hier wird das Statement gestoppt, wir erhalten den Fehler und werden rausbefödert!
@@ -69,10 +68,6 @@ class Login extends Dbh {
             $_SESSION["useruid"] = $user[0]["users_uid"];
 
             $stmt = null;
-
-          
-         
         }
     }
-
 }

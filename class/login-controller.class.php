@@ -9,20 +9,23 @@ Welcher Inhalt erwartet mich?
 */
 
 // LoginController WIRD SUBKLASSE (= extends) von Login
-class loginController extends Login {
+class loginController extends Login
+{
 
     private $uid;
     private $pwd;
-    
-    public function __construct($uid, $pwd) {
+
+    public function __construct($uid, $pwd)
+    {
         $this->uid = $uid;
         $this->pwd = $pwd;
     }
 
     // LoginUser-Methode:
-    public function loginUser() {
+    public function loginUser()
+    {
         // 1) Errorhandler-IF-Statement.
-        if($this->emptyInput() == false) {
+        if ($this->emptyInput() == false) {
             // echo "Empty input!";
             header("location: ../logreg.php?error=leereLoginFelder");
             exit();
@@ -37,14 +40,13 @@ class loginController extends Login {
 
     // Selbiges Prinzip wie im Signup, jedoch angepasst an nur 2 Inputfeldern für Check
     // Wir dürfen den selben Namen der Methode verweden emtpyInput(), beziehen uns aber auf loginUser() im Unterschied zu signupUser()
-    private function emptyInput() {
-        if(empty($this->uid) || empty($this->pwd)) {
+    private function emptyInput()
+    {
+        if (empty($this->uid) || empty($this->pwd)) {
             $result = false;
-        }
-        else {
+        } else {
             $result = true;
         }
         return $result;
     }
-
 }

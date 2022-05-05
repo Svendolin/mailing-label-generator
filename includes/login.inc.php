@@ -33,5 +33,4 @@ if(isset($_POST["submit-login"])) // Entspricht name="" des Buttons
     header("location: ../menu.php?error=willkommen");
 }
 
-
 ?>

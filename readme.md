@@ -7,6 +7,9 @@
 ***
 ⚫🔴🟡Side note: The whole project is commented in German⚫🔴🟡
 
+[💯] 2nd Note: The described OOP / MVC / PDO processes are not summarized in the PDF but directly here in the readme.md markdown:
+
+
 Ettikator, the mailing labels generator should contain:
 
 * Used OOP and PDO, MVC principle and asynchronal requests via AJAX
@@ -26,7 +29,7 @@ Optional stuff:
 * App with a full MVC-Model
 
 
-MUST ADD for alerts:
+MUST ADD for alerts for future processes:
 https://sweetalert.js.org/guides/#installation
 
 
@@ -53,19 +56,106 @@ Quick overview what I've integrated in our project:
 
 - PHP is built in the OOP / MVC model and is clearly cast in sub- and superclasses and not procedural
 
-
-
 <br />
 <br />
 
 ***
-## Site explanation: ☑
+## Site- / Content explanation: ☑
 ***
 
-HOME (index.php):
+**API**
 
-* Overview of events, news about the owner's vehicle and featured blogposts where the latest and most popular posts are loaded.
-* ``IMPORTANT: (Password / Username / Email of the regstered users are stored at .gitignore)``
+* Google Maps and Google Geolocation API content
+  * Google Maps Icons
+
+**class**
+
+* Super + subclasses regarding database, login, signup and menu
+
+**favicon**
+
+* Favicons for website
+
+**guidesSAE**
+
+* Summative / Formative Guidelines
+
+**ignazstuff**
+
+* Ignaz inspiration code
+
+**images**
+
+* Images used for the website
+    * ettiketten-folder with 13 sample foils
+
+**includes**
+
+* included files regarding signup / login / logout / menu
+    * html files (header / footer / label base for slider)
+
+**node_modules**
+
+* Node Package for print.js (For later use)
+
+**guidesSAE**
+
+* Summative / Formative Guidelines
+
+**prefs**
+
+* Credentials (database preferences)
+
+**guidesSAE**
+
+* Summative / Formative Leitlinien
+
+**PW**
+
+* Sensiblere Passwortdaten
+
+**themes**
+
+* More sensitive password data
+    * css (designs for ettikator / mediaqueries / print for PDF / style (general style) / variables)
+
+**.gitignore**
+
+* Files, die von GIT ignoriert werden
+
+**ettikator.sql**
+
+* Exported etticator database
+
+**index.php**
+
+* Startdatei
+
+**logreg.php**
+
+* Anmelde- / Loginformular
+
+**menu_bearbeiten.php**
+
+* Menu File to edit addresses
+
+**menu_update.php**
+
+* Menu File to update the address
+
+**menu.php**
+
+* Menu File (Address Overview / Address Creation / Google Maps / Google Geolocation) 
+
+**package.lock.json / package.json**
+
+* JSON Packages
+
+**readme.md**
+
+* Readme Markdown (this file here xD)
+
+
 
 <br />
 <br />

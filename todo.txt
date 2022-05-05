@@ -1,8 +1,0 @@
-- Header + Footer
-- menu bereich (normal, update und bearbeiten)
-- Index hauptbereich slider
-- Inputfelder
-- Abschnitt ausdrucken
-- Fehler beheben
-- Readme anpassen
-- API Key verschlüsseln

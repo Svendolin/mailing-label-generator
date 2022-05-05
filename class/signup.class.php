@@ -56,5 +56,3 @@ class Signup extends Dbh {
   }
 
 }
-
-?>

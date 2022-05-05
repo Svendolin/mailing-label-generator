@@ -53,7 +53,6 @@ include('includes/html/header.html.php');
 
 
 <?php
-
 // Prüfen, ob der Submit-Button geklickt wurde:
 if (isset($_POST['go'])) {
 
@@ -146,7 +145,7 @@ if (isset($_POST['go'])) {
 					</div>
 				</div>
 				<div class="button-container">
-					<button onclick="javascript:location.reload();" class="adressbutton" type="submit" name="go">Adresse speichern</button>
+						<button class="adressbutton" type="submit" name="go">Adresse speichern</button>
 				</div>
 			</form>
 		</div>
@@ -215,14 +214,7 @@ if (isset($_POST['go'])) {
 			</div>
 		</div>
 		<!--x-- "Ort Lokalisieren" Bereich --x-->
-
 	</div>
-
-
-
-
-
-
 
 	<!---------- footer ----------------------------------------------------------------------------------------------------->
 	<?php

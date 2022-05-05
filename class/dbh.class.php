@@ -10,10 +10,12 @@ Welcher Inhalt erwartet mich?
 */
 
 // Dbh ist die Superklasse, Signup wiederum die Subklasse etc...
-class Dbh {
-    
+class Dbh
+{
+
     // Methode (Kurzversion) zum Datenbankaufbau:
-    protected function connect() { // protected, damit wir von der Subklasse Signup zugreifen können
+    protected function connect()
+    { // protected, damit wir von der Subklasse Signup zugreifen können
         // try: "versuche Kommendes auszuführen" oder fange (catch) den Error ab und zeige ihn:
         try {
             // (Übernimmt prefs > crendetials) Lokale-DB-Credentials von XAMPP:
@@ -22,11 +24,9 @@ class Dbh {
             //dbh = Database Handler (NOTE: mysql bezieht sich auf die Datenbank, nicht auf eine PHP-Funktion. Daher kein mysqli)
             $dbh = new PDO('mysql:host=localhost;dbname=ettikator', $user, $passwd);
             return $dbh;
-        } 
-        catch (PDOException $e) {
+        } catch (PDOException $e) {
             print "Error!: " . $e->getMessage() . "<br/>";
             die();
         }
     }
-
 }

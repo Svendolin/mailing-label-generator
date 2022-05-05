@@ -6,3 +6,5 @@ session_destroy();
 
 // Going to back to front page
 header("location: ../index.php?error=none");
+
+?>

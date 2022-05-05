@@ -43,17 +43,17 @@ include('includes/html/header.html.php');
 <!-----x---- Header + Navigation ----x----------------------------------------------------------------------------------->
 
 
-	<div class="emptyspace">
-		<div class="image-container">
-			<img src="images/menu-bearbeiten-logo.jpg" alt="Menu Logo" height="140px">
-		</div>
+<div class="emptyspace">
+	<div class="image-container">
+		<img src="images/menu-bearbeiten-logo.jpg" alt="Menu Logo" height="140px">
 	</div>
-	<div class="erklaerungsbereich">
-		<a href="menu.php">Neue Adresse eintragen</a>
-		<a href="menu_bearbeiten.php">Adressen bearbeiten</a>
-	</div>
+</div>
+<div class="erklaerungsbereich">
+	<a href="menu.php">Neue Adresse eintragen</a>
+	<a href="menu_bearbeiten.php">Adressen bearbeiten</a>
+</div>
 
-	
+
 
 
 <?php
@@ -78,7 +78,7 @@ if (isset($_POST['go'])) {
 				<p class='successtext'><i class='fa-solid fa-circle-check'></i> Die Adresse wurde erfolgreich angepasst!</p>
 			</div>
 		";
-	echo "<div class='emptyspace'></div>";
+	echo "<div class='emptyspace_update'></div>";
 	echo include('includes/html/footer.html.php');
 	// Ausgabe beenden
 	exit();
